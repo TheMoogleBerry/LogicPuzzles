@@ -1,33 +1,45 @@
 """
 A module for coordinating the classification of the POS in a sentence or body
 of text.
-"""
 
-class POSClassifier:
+The tags being used are currently those in use for the brown corpus
+"""
+WEIGHT_FILE = 'data/weights.csv'
+DEFAULT_TRAINING_FILE = 'data/train.txt'
+
+
+class POSClassifier(object):
     """
     Classifier that manages the POS Classification
     """
-    weights = []
+    weights_file = None
 
-    def train(self, file_name):
+    def __init__(self):
+        self.weights_file = open(WEIGHT_FILE, 'r+')
+
+    def __del__(self):
+        self.weights_file.close()
+
+    def train(self, file_name = DEFAULT_TRAINING_FILE):
         """
-        Takes a file name where each line is formatted with a single sentence, -, and
-        finally followed by the classification of each work. For example a line from
-        the file may be:
-        The boy is happy. - Article Noun Linking_Verb Adjective
+        Takes in a training file formatted where the entire body of text is
+        parsed each individual word or punctuation. On each line, there is
+        also an identification stating the actual part of speech for that word.
 
         Args:
             file_name (str): The path to the file contain the training data
         """
-        training_data = open(file_name)
+        self.training_data = open(file_name)
 
-        training_data.close()
+
+
+        self.training_data.close()
 
     def classify(self, text):
         """
-        Takes a body of text and transforms it to an array of classification for each
-        word in the body of text, where its position in the returned array is determined
-        by its position in the text.
+        Takes a body of text and transforms it to an array of classification for
+        each word in the body of text, where its position in the returned array
+        is determined by its position in the text.
 
         Args:
             text (str): The body of text that needs to be classified
