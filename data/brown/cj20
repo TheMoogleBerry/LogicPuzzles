@@ -50,10 +50,10 @@ We/ppss can/md now/rb prove/vb several/ap lemmas/nns ./.
 
 
 
-Lemma/nn-hl 1/cd-hl ./.-hl
+Lemma/nn 1/cd ./.
 
 In/in some/dti neighborhood/nn in/in the/at f-plane/nn of/in any/dti ordinary/jj point/nn of/in the/at graph/nn ,/, the/at function/nn f/nn is/bez a/at single-valued/jj ,/, continuous/jj function/nn ./.
-Proof/nn-hl ./.-hl
+Proof/nn ./.
 
 We/ppss first/rb show/vb that/cs the/at function/nn is/bez single-valued/jj in/in some/dti neighborhood/nn ./.
 With/in the/at vertex/nn at/in Af/nn in/in the/at C-plane/nn we/ppss assume/vb that/cs Af/nn is/bez the/at parametric/jj location/nn on/in C/nn of/in an/at ordinary/jj intersection/nn Q/nn between/in C/nn and/cc Af/nn ./.
@@ -74,15 +74,15 @@ Thus/rb Af/nn is/bez also/rb continuous/jj at/in Af/nn ,/, and/cc in/in a/at nei
 
 	We/ppss turn/vb now/rb to/in the/at set/nn of/in tangent/jj points/nns on/in the/at graph/nn ./.
 This/dt set/nn must/md consist/vb of/in isolated/vbn points/nns and/cc closed/vbn intervals/nns ./.
-The/at fact/nn that/cs there/ex can/md not/* be/be any/dti limit/nn points/nns of/in the/at set/nn except/in in/in closed/vbn intervals/nns follows/vbz from/in the/at argument/nn used/vbn in/in Lemma/nn-tl 1/cd-tl ,/, namely/rb ,/, that/cs near/in any/dti tangent/jj point/nn in/in the/at C-plane/nn the/at curves/nns C/nn and/cc Af/nn are/ber analytic/jj ,/, and/cc therefore/rb the/at difference/nn between/in them/ppo must/md be/be a/at monotone/jj function/nn in/in some/dti neighborhood/nn on/in either/dtx side/nn of/in the/at tangent/jj point/nn ./.
+The/at fact/nn that/cs there/ex can/md not/* be/be any/dti limit/nn points/nns of/in the/at set/nn except/in in/in closed/vbn intervals/nns follows/vbz from/in the/at argument/nn used/vbn in/in Lemma/nn 1/cd ,/, namely/rb ,/, that/cs near/in any/dti tangent/jj point/nn in/in the/at C-plane/nn the/at curves/nns C/nn and/cc Af/nn are/ber analytic/jj ,/, and/cc therefore/rb the/at difference/nn between/in them/ppo must/md be/be a/at monotone/jj function/nn in/in some/dti neighborhood/nn on/in either/dtx side/nn of/in the/at tangent/jj point/nn ./.
 This/dt prevents/vbz the/at occurrence/nn of/in an/at infinite/jj sequence/nn of/in isolated/vbn tangent/jj points/nns ./.
 
 
 
-Lemma/nn-tl-hl 2/cd-hl ./.-hl
+Lemma/nn 2/cd ./.
 
 In/in some/dti neighborhood/nn of/in an/at isolated/vbn tangent/jj point/nn in/in the/at f-plane/nn ,/, say/uh Af/nn ,/, the/at function/nn Af/nn is/bez either/cc double-valued/jj or/cc has/hvz no/at values/nns defined/vbn ,/, except/in at/in the/at tangent/jj point/nn itself/ppl ,/, where/wrb it/pps is/bez single-valued/jj ./.
-Proof/nn-hl ./.-hl
+Proof/nn ./.
 
 A/at tangent/jj point/nn Q/nn in/in the/at C-plane/nn occurs/vbz when/wrb C/nn and/cc Af/nn are/ber tangent/jj to/in one/cd another/dt ./.
 A/at continuous/jj change/nn in/in T/np through/in an/at amount/nn E/np results/vbz in/in a/at translation/nn along/in an/at analytic/jj arc/nn of/in the/at curve/nn Af/nn ./.
@@ -104,23 +104,23 @@ Therefore/rb ,/, for/in any/dti value/nn of/in T/np the/at number/nn of/in value
 
 
 
-Definition/nn-hl ./.-hl
+Definition/nn ./.
 
 The/at number/nn of/in ordinary/jj values/nns of/in the/at function/nn f{t}/nn at/in T/np will/md be/be called/vbn its/pp$ multiplicity/nn at/in T/np ./.
 
 
 
-Lemma/nn-tl-hl 3/cd-hl ./.-hl
+Lemma/nn 3/cd ./.
 
 The/at graph/nn of/in f/nn has/hvz at/in least/ap one/cd component/nn whose/wp$ support/nn is/bez the/at entire/jj interval/nn Aj/nn ./.
-Proof/nn-hl 
-./.-hl
+Proof/nn 
+./.
 We/ppss suppose/vb not/* ./.
 Then/rb every/at component/nn of/in the/at graph/nn of/in F/np must/md be/be defined/vbn over/in a/at bounded/vbn sub-interval/nn ./.
 Suppose/vb Af/nn is/bez defined/vbn in/in the/at sub-interval/nn Af/nn ./.
 Now/rb Af/nn and/cc Af/nn must/md both/abx be/be tangent/jj points/nns on/in the/at T/np component/nn in/in the/at f-plane/nn ;/. ;/.
-otherwise/rb by/in Lemma/nn-tl 1/cd-tl the/at component/nn would/md extend/vb beyond/in these/dts points/nns ./.
-Further/rbr ,/, we/ppss see/vb by/in Lemma/nn-tl 2/cd-tl that/cs the/at multiplicity/nn of/in F/np can/md only/rb change/vb at/in a/at tangent/jj point/nn ,/, and/cc at/in such/abl a/at point/nn can/md only/rb change/vb by/in an/at even/jj integer/nn ./.
+otherwise/rb by/in Lemma/nn 1/cd the/at component/nn would/md extend/vb beyond/in these/dts points/nns ./.
+Further/rbr ,/, we/ppss see/vb by/in Lemma/nn 2/cd that/cs the/at multiplicity/nn of/in F/np can/md only/rb change/vb at/in a/at tangent/jj point/nn ,/, and/cc at/in such/abl a/at point/nn can/md only/rb change/vb by/in an/at even/jj integer/nn ./.
 Thus/rb the/at multiplicity/nn of/in Af/nn for/in a/at given/vbn T/np must/md be/be an/at even/jj number/nn ./.
 This/dt is/bez true/jj of/in all/abn components/nns which/wdt have/hv such/abl a/at bounded/vbn support/nn ./.
 But/cc this/dt is/bez a/at contradiction/nn ,/, for/cs we/ppss know/vb that/cs the/at multiplicity/nn of/in f{t}/nn is/bez odd/jj for/in every/at T/np ./.
@@ -140,15 +140,15 @@ These/dts s-values/nn are/ber just/rb the/at ordinary/jj values/nns of/in Af/nn 
 
 
 
-Lemma/nn-tl-hl 4/cd-tl-hl ./.-hl
+Lemma/nn 4/cd ./.
 
 The/at values/nns Af/nn are/ber the/at ordinary/jj values/nns at/in Af/nn of/in a/at multi-valued/jj function/nn g{t}/nn which/wdt has/hvz components/nns corresponding/vbg to/in those/dts of/in f{t}/nn ./.
-Proof/nn-hl ./.-hl
+Proof/nn ./.
 
 We/ppss first/rb define/vb a/at function/nn b{t}/nn as/cs follows/vbz :/: given/vbn the/at set/nn of/in squares/nns such/jj that/cs each/dt has/hvz three/cd corners/nns on/in C/nn and/cc vertex/nn at/in t/nn ,/, b{t}/nn is/bez the/at corresponding/jj set/nn of/in positive/jj parametric/jj differences/nns between/in T/np and/cc the/at backward/jj corner/nn points/nns ./.
 The/at functions/nns F/np and/cc B/np have/hv exactly/rb the/at same/ap multiplicity/nn at/in every/at argument/nn T/np ./.
 Now/rb with/in P/nn fixed/vbn at/in Af/nn ,/, Af-values/nns occur/vb when/wrb the/at corner/nn Af/nn crosses/vbz C/nn ,/, and/cc are/ber among/in the/at values/nns of/in S/np such/jj that/cs Af/nn ./.
-The/at roots/nns of/in this/dt equation/nn are/ber just/rb the/at ordinates/nns of/in the/at intersections/nns of/in the/at graph/nn of/in B/nn-tl with/in a/at straight/jj line/nn of/in unit/nn slope/nn through/in Af/nn in/in the/at b-plane/nn (/( the/at plane/nn of/in the/at graph/nn of/in b/nn )/) ./.
+The/at roots/nns of/in this/dt equation/nn are/ber just/rb the/at ordinates/nns of/in the/at intersections/nns of/in the/at graph/nn of/in B/nn with/in a/at straight/jj line/nn of/in unit/nn slope/nn through/in Af/nn in/in the/at b-plane/nn (/( the/at plane/nn of/in the/at graph/nn of/in b/nn )/) ./.
 We/ppss define/vb these/dts values/nns as/cs Af/nn ,/, and/cc define/vb g{t}/nn in/in the/at same/ap way/nn for/in each/dt T/np ./.
 Thus/rb we/ppss obtain/vb g{t}/nn by/in introducing/vbg an/at oblique/jj g{t}-axis/nn in/in the/at Aj/nn ./.
 

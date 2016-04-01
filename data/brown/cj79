@@ -1,16 +1,16 @@
 The/at set/nn of/in all/abn decisions/nns is/bez called/vbn the/at operating/vbg policy/nn or/cc ,/, more/ql simply/rb ,/, the/at policy/nn ./.
 An/at optimal/jj policy/nn is/bez one/cd which/wdt in/in some/dti sense/nn gets/vbz the/at best/jjt out/rp of/in the/at process/nn as/cs a/at whole/nn by/in maximizing/vbg the/at value/nn of/in the/at product/nn ./.
-There/ex are/ber thus/rb three/cd components/nns to/in an/at optimal/jj design/nn problem/nn :/: (/(-hl 1/cd-hl )/)-hl 
+There/ex are/ber thus/rb three/cd components/nns to/in an/at optimal/jj design/nn problem/nn :/: (/( 1/cd )/) 
 The/at specification/nn of/in the/at state/nn of/in the/at process/nn stream/nn ;/. ;/.
-(/(-hl 2/cd-hl )/)-hl 
+(/( 2/cd )/) 
 The/at specification/nn of/in the/at operating/vbg variables/nns and/cc the/at transformation/nn they/ppss effect/vb ;/. ;/.
-(/(-hl 3/cd-hl )/)-hl 
+(/( 3/cd )/) 
 The/at specification/nn of/in the/at objective/jj function/nn of/in which/wdt the/at optimization/nn is/bez desired/vbn ./.
 For/in a/at chemical/nn process/nn the/at first/od of/in these/dts might/md involve/vb the/at concentrations/nns of/in the/at different/jj chemical/nn species/nns ,/, and/cc the/at temperature/nn or/cc pressure/nn of/in the/at stream/nn ./.
 For/in the/at second/od we/ppss might/md have/hv to/to choose/vb the/at volume/nn of/in reactor/nn or/cc amount/nn of/in cooling/vbg to/to be/be supplied/vbn ;/. ;/.
 the/at way/nn in/in which/wdt the/at transformation/nn of/in state/nn depends/vbz on/in the/at operating/vbg variables/nns for/in the/at main/jjs types/nns of/in reactors/nns is/bez discussed/vbn in/in the/at next/ap chapter/nn ./.
 The/at objective/jj function/nn is/bez some/dti measure/nn of/in the/at increase/nn in/in value/nn of/in the/at stream/nn by/in processing/vbg ;/. ;/.
-it/pps is/bez the/at subject/nn of/in Chapter/nn-tl 4/cd-tl ./.
+it/pps is/bez the/at subject/nn of/in Chapter/nn 4/cd ./.
 
 
 	The/at essential/jj characteristic/nn of/in an/at optimal/jj policy/nn when/wrb the/at state/nn of/in the/at stream/nn is/bez transformed/vbn in/in a/at sequence/nn of/in stages/nns with/in no/at feedback/nn was/bedz first/rb isolated/vbn by/in Bellman/np ./.
@@ -39,7 +39,7 @@ Then/rb the/at dynamic/jj program/nn would/md require/vb about/rb a/at minute/nn
 	The/at principle/nn of/in optimality/nn thus/rb brings/vbz a/at vital/jj organization/nn into/in the/at search/nn for/in the/at optimal/jj policy/nn of/in a/at multistage/nn decision/nn process/nn ./.
 Bellman/np (/( 1957/cd )/) has/hvz annunciated/vbn in/in the/at following/vbg terms/nns :/: 
 
-	``/`` An/at optimal/jj policy/nn has/hvz the/at property/nn that/cs whatever/wdt the/at initial/jj state/nn and/cc initial/jj decision/nn are/ber ,/, the/at remaining/vbg decisions/nns must/md constitute/vb an/at optimal/jj policy/nn with/in respect/nn to/in the/at state/nn resulting/vbg from/in the/at first/od decision/nn ''/'' ./.
+	``/'' An/at optimal/jj policy/nn has/hvz the/at property/nn that/cs whatever/wdt the/at initial/jj state/nn and/cc initial/jj decision/nn are/ber ,/, the/at remaining/vbg decisions/nns must/md constitute/vb an/at optimal/jj policy/nn with/in respect/nn to/in the/at state/nn resulting/vbg from/in the/at first/od decision/nn ''/'' ./.
 
 
 	This/dt is/bez the/at principle/nn which/wdt we/ppss will/md invoke/vb in/in every/at case/nn to/to set/vb up/rp a/at functional/jj equation/nn ./.
@@ -48,8 +48,8 @@ At/in the/at same/ap time/nn ,/, every/at device/nn that/wps can/md be/be employ
 
 
 
-2.2/cd-hl the/at discrete/jj deterministic/jj process/nn 
-Consider/vb the/at process/nn illustrated/vbn in/in Fig./nn-tl 2.1/cd-tl ,/, consisting/vbg of/in R/nn distinct/jj stages/nns ./.
+2.2/cd the/at discrete/jj deterministic/jj process/nn 
+Consider/vb the/at process/nn illustrated/vbn in/in Fig./nn 2.1/cd ,/, consisting/vbg of/in R/nn distinct/jj stages/nns ./.
 These/dts will/md be/be numbered/vbn in/in the/at direction/nn opposite/rb to/in the/at flow/nn of/in the/at process/nn stream/nn ,/, so/cs that/cs stage/nn R/np is/bez the/at T/np stage/nn from/in the/at end/nn ./.
 Let/vb the/at state/nn of/in the/at stream/nn leaving/vbg stage/nn R/np be/be denoted/vbn by/in a/at vector/nn Af/nn and/cc the/at operating/vbg variables/nns of/in stage/nn R/np by/in Af/nn ./.
 Thus/rb Af/nn denotes/vbz the/at state/nn of/in the/at feed/nn to/in the/at R-stage/nn process/nn ,/, and/cc Af/nn the/at state/nn of/in the/at product/nn from/in the/at last/ap stage/nn ./.
@@ -81,7 +81,7 @@ The/at sequence/nn of/in equations/nns (/( 6/cd )/) can/md be/be solved/vbn for/
 In/in finding/vbg the/at optimal/jj R-stage/nn policy/nn from/in that/dt of/in Af/nn stages/nns ,/, only/rb the/at function/nn Af/nn is/bez needed/vbn ./.
 When/wrb Af/nn has/hvz been/ben found/vbn it/pps may/md be/be transferred/vbn into/in the/at storage/nn location/nn of/in Af/nn and/cc the/at whole/jj calculation/nn repeated/vbn ./.
 We/ppss also/rb see/vb how/wrb the/at results/nns may/md be/be presented/vbn ,/, although/cs if/cs n/nn ,/, the/at number/nn of/in state/nn variables/nns ,/, is/bez large/jj any/dti tabulation/nn will/md become/vb cumbersome/jj ./.
-A/at table/nn or/cc set/nn of/in tables/nns may/md be/be set/vbn out/rp as/cs in/in Table/nn-tl 2.1/cd-tl ./.
+A/at table/nn or/cc set/nn of/in tables/nns may/md be/be set/vbn out/rp as/cs in/in Table/nn 2.1/cd ./.
 
 
 	To/to extract/vb the/at optimal/jj R-stage/nn policy/nn with/in respect/nn to/in the/at feed/nn state/nn Af/nn ,/, we/ppss enter/vb section/nn R/nn of/in this/dt table/nn at/in the/at state/nn Af/nn and/cc find/vb immediately/rb from/in the/at last/ap column/nn the/at maximum/jj value/nn of/in the/at objective/jj function/nn ./.
@@ -100,7 +100,7 @@ This/dt sequence/nn of/in equations/nns may/md be/be started/vbn with/in the/at 
 
 
 
-2.3/cd-hl the/at discrete/jj stochastic/jj process/nn 
+2.3/cd the/at discrete/jj stochastic/jj process/nn 
 The/at process/nn in/in which/wdt the/at outcome/nn of/in any/dti one/cd stage/nn is/bez known/vbn only/rb statistically/rb is/bez also/rb of/in interest/nn ,/, although/cs for/in chemical/nn reactor/nn design/nn it/pps is/bez not/* as/ql important/jj as/cs the/at deterministic/jj process/nn ./.
 In/in this/dt case/nn the/at stage/nn R/np operating/vbg with/in conditions/nns Af/nn transforms/vbz the/at state/nn of/in the/at stream/nn from/in Af/nn to/in Af/nn ,/, but/cc only/rb the/at probability/nn distribution/nn of/in Af/nn is/bez known/vbn ./.
 This/dt is/bez specified/vbn by/in a/at distribution/nn function/nn Af/nn such/jj that/cs the/at probability/nn that/cs Af/nn lies/vbz in/in some/dti region/nn D/nn of/in the/at stage/nn space/nn is/bez Af/nn ./.
@@ -120,11 +120,11 @@ The/at discussion/nn of/in the/at optimal/jj policy/nn when/wrb the/at outcome/n
 
 
 
-2.4/cd-hl the/at continuous/jj deterministic/jj process/nn 
+2.4/cd the/at continuous/jj deterministic/jj process/nn 
 In/in many/ap cases/nns it/pps is/bez not/* possible/jj to/to divide/vb the/at process/nn into/in a/at finite/jj number/nn of/in discrete/jj stages/nns ,/, since/cs the/at state/nn of/in the/at stream/nn is/bez transformed/vbn in/in a/at continuous/jj manner/nn through/in the/at process/nn ./.
-We/ppss replace/vb r/nn ,/, the/at number/nn of/in the/at stage/nn from/in the/at end/nn of/in the/at process/nn ,/, by/in t/nn ,/, a/at continuous/jj variable/jj which/wdt measures/vbz the/at ``/`` distance/nn ''/'' of/in the/at point/nn considered/vbn from/in the/at end/nn of/in the/at process/nn ./.
-The/at word/nn distance/nn-nc is/bez used/vbn here/rb in/in a/at rather/ql general/jj sense/nn ;/. ;/.
+We/ppss replace/vb r/nn ,/, the/at number/nn of/in the/at stage/nn from/in the/at end/nn of/in the/at process/nn ,/, by/in t/nn ,/, a/at continuous/jj variable/jj which/wdt measures/vbz the/at ``/'' distance/nn ''/'' of/in the/at point/nn considered/vbn from/in the/at end/nn of/in the/at process/nn ./.
+The/at word/nn distance/nn is/bez used/vbn here/rb in/in a/at rather/ql general/jj sense/nn ;/. ;/.
 it/pps may/md in/in fact/nn be/be the/at time/nn that/wps will/md elapse/vb before/in the/at end/nn of/in the/at process/nn ./.
-If/cs T/nn is/bez the/at total/jj ``/`` length/nn ''/'' of/in the/at process/nn ,/, its/pp$ feed/nn state/nn may/md be/be denoted/vbn by/in a/at vector/nn p(T)/nn and/cc the/at product/nn state/nn by/in p(Q)/nn ./.
+If/cs T/nn is/bez the/at total/jj ``/'' length/nn ''/'' of/in the/at process/nn ,/, its/pp$ feed/nn state/nn may/md be/be denoted/vbn by/in a/at vector/nn p(T)/nn and/cc the/at product/nn state/nn by/in p(Q)/nn ./.
 P/np denotes/vbz the/at state/nn at/in any/dti point/nn T/np and/cc Q/np the/at vector/nn of/in operating/vbg variables/nns there/rb ./.
 

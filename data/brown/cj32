@@ -9,8 +9,8 @@ Implementation/nn of/in the/at latter/ap requires/vbz storage/nn of/in informati
 
 
 	We/ppss suggest/vb the/at application/nn of/in certain/ap data-processing/nn techniques/nns as/cs a/at solution/nn to/in the/at problem/nn ./.
-But/cc first/rb ,/, we/ppss must/md define/vb two/cd terms/nns so/cs that/cs their/pp$ meaning/nn will/md be/be clearly/rb understood/vbn :/: form/nn-nc --/-- any/dti unique/jj sequence/nn of/in alphabetic/jj characters/nns that/wps can/md appear/vb in/in a/at language/nn preceded/vbn and/cc followed/vbn by/in a/at space/nn ;/. ;/.
-occurrence/nn-nc --/-- an/at instance/nn of/in a/at form/nn in/in text/nn ./.
+But/cc first/rb ,/, we/ppss must/md define/vb two/cd terms/nns so/cs that/cs their/pp$ meaning/nn will/md be/be clearly/rb understood/vbn :/: form/nn --/-- any/dti unique/jj sequence/nn of/in alphabetic/jj characters/nns that/wps can/md appear/vb in/in a/at language/nn preceded/vbn and/cc followed/vbn by/in a/at space/nn ;/. ;/.
+occurrence/nn --/-- an/at instance/nn of/in a/at form/nn in/in text/nn ./.
 
 
 	We/ppss propose/vb a/at method/nn for/in selecting/vbg only/ap dictionary/nn information/nn required/vbn by/in the/at text/nn being/beg translated/vbn and/cc a/at means/nn for/in passing/vbg the/at information/nn directly/rb to/in the/at occurrences/nns in/in text/nn ./.

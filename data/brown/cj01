@@ -1,8 +1,8 @@
 
 
 
-1/cd-hl ./.-hl
-Introduction/nn-hl 
+1/cd ./.
+Introduction/nn 
 It/pps has/hvz recently/rb become/vbn practical/jj to/to use/vb the/at radio/nn emission/nn of/in the/at moon/nn and/cc planets/nns as/cs a/at new/jj source/nn of/in information/nn about/in these/dts bodies/nns and/cc their/pp$ atmospheres/nns ./.
 The/at results/nns of/in present/jj observations/nns of/in the/at thermal/jj radio/nn emission/nn of/in the/at moon/nn are/ber consistent/jj with/in the/at very/ql low/jj thermal/jj conductivity/nn of/in the/at surface/nn layer/nn which/wdt was/bedz derived/vbn from/in the/at variation/nn in/in the/at infrared/jj emission/nn during/in eclipses/nns (/( e.g./rb ,/, Garstung/np ,/, 1958/cd )/) ./.
 When/wrb sufficiently/ql accurate/jj and/cc complete/jj measurements/nns are/ber available/jj ,/, it/pps will/md be/be possible/jj to/to set/vb limits/nns on/in the/at thermal/jj and/cc electrical/jj characteristics/nns of/in the/at surface/jj and/cc subsurface/jj materials/nns of/in the/at moon/nn ./.
@@ -26,7 +26,7 @@ In/in spite/nn of/in this/dt ,/, the/at very/ql large/jj radio/nn reflectors/nns
 This/dt was/bedz followed/vbn by/in a/at comprehensive/jj series/nn of/in observations/nns of/in the/at 1.25-cm/nn emission/nn of/in the/at moon/nn over/in three/cd lunar/jj cycles/nns by/in Piddington/np and/cc Minnett/np (/( 1949/cd )/) ./.
 They/ppss deduced/vbd from/in their/pp$ measurements/nns that/cs the/at radio/nn emission/nn from/in the/at whole/jj disk/nn of/in the/at moon/nn varied/vbd during/in a/at lunation/nn in/in a/at roughly/ql sinusoidal/jj fashion/nn ;/. ;/.
 that/cs the/at amplitude/nn of/in the/at variation/nn was/bedz considerably/ql less/ap than/cs the/at amplitude/nn of/in the/at variation/nn in/in the/at infrared/jj emission/nn as/cs measured/vbn by/in Pettit/np and/cc Nicholson/np (/( 1930/cd )/) and/cc Pettit/np (/( 1935/cd )/) ;/. ;/.
-and/cc that/cs the/at maximum/nn of/in the/at radio/nn emission/nn came/vbd about/rb 3-1/2/cd days/nns after/in Full/jj-tl Moon/nn-tl ,/, which/wdt is/bez again/rb in/in contrast/nn to/in the/at infrared/jj emission/nn ,/, which/wdt reaches/vbz its/pp$ maximum/nn at/in Full/jj-tl Moon/nn-tl ./.
+and/cc that/cs the/at maximum/nn of/in the/at radio/nn emission/nn came/vbd about/rb 3-1/2/cd days/nns after/in Full/jj Moon/nn ,/, which/wdt is/bez again/rb in/in contrast/nn to/in the/at infrared/jj emission/nn ,/, which/wdt reaches/vbz its/pp$ maximum/nn at/in Full/jj Moon/nn ./.
 Piddington/np and/cc Minnett/np explained/vbd their/pp$ observations/nns by/in pointing/vbg out/rp that/cs rocklike/jj materials/nns which/wdt are/ber likely/jj to/to make/vb up/rp the/at surface/nn of/in the/at moon/nn would/md be/be partially/ql transparent/jj to/in radio/nn waves/nns ,/, although/cs opaque/jj to/in infrared/jj radiation/nn ./.
 The/at infrared/jj emission/nn could/md then/rb be/be assumed/vbn to/to originate/vb at/in the/at surface/nn of/in the/at moon/nn ,/, while/cs the/at radio/nn emission/nn originates/vbz at/in some/dti depth/nn beneath/in the/at surface/nn ,/, where/wrb the/at temperature/nn variation/nn due/jj to/in solar/jj radiation/nn is/bez reduced/vbn in/in amplitude/nn and/cc shifted/vbn in/in phase/nn ./.
 Since/cs the/at absorption/nn of/in radio/nn waves/nns in/in rocklike/jj material/nn varies/vbz with/in wave/nn length/nn ,/, it/pps should/md be/be possible/jj to/to sample/vb the/at temperature/nn variation/nn at/in different/jj depths/nns beneath/in the/at surface/nn and/cc possibly/rb detect/vb changes/nns in/in the/at structure/nn or/cc composition/nn of/in the/at lunar/jj surface/nn material/nn ./.
@@ -62,18 +62,18 @@ Therefore/rb ,/, neglecting/vbg the/at extreme/jj outbursts/nns ,/, reflected/vb
 
 
 
-2/cd-hl ./.-hl
-The/at-hl moon/nn-hl 
-2.1/cd-hl observations/nns-hl 
-Radio/nn observations/nns of/in the/at moon/nn have/hv been/ben made/vbn over/in the/at range/nn of/in wave/nn lengths/nns from/in 4.3/cd mm/nn to/in 75/cd cm/nn ,/, and/cc the/at results/nns are/ber summarized/vbn in/in Table/nn-tl 1/cd-tl ./.
+2/cd ./.
+The/at moon/nn 
+2.1/cd observations/nns 
+Radio/nn observations/nns of/in the/at moon/nn have/hv been/ben made/vbn over/in the/at range/nn of/in wave/nn lengths/nns from/in 4.3/cd mm/nn to/in 75/cd cm/nn ,/, and/cc the/at results/nns are/ber summarized/vbn in/in Table/nn 1/cd ./.
 Observations/nns have/hv also/rb been/ben made/vbn at/in 1.5/cd mm/nn using/vbg optical/jj techniques/nns (/( Sinton/np ,/, 1955/cd ,/, 1956/cd ,/, ;/. ;/.
 see/vb also/rb chap./nn 11/cd )/) ./.
 Not/* all/abn the/at observers/nns have/hv used/vbn the/at same/ap procedures/nns or/cc made/vbn the/at same/ap assumptions/nns about/in the/at lunar/jj brightness/nn distribution/nn when/wrb reducing/vbg the/at data/nn ,/, and/cc this/dt ,/, together/rb with/in differences/nns in/in the/at methods/nns of/in calibrating/vbg the/at antennae/nns and/cc receivers/nns ,/, must/md account/vb for/in much/ap of/in the/at disagreement/nn in/in the/at measured/vbn radio/nn brightness/nn temperatures/nns ./.
 
 
 	In/in the/at observations/nns at/in 4.3/cd mm/nn (/( Coates/np ,/, 1959/cd )/) ,/, the/at diameter/nn of/in the/at antenna/nn beam/nn ,/, 6'.7/nn ,/, was/bedz small/jj enough/qlp to/to allow/vb resolution/nn of/in some/dti of/in the/at larger/jjr features/nns of/in the/at lunar/jj surface/nn ,/, and/cc contour/nn diagrams/nns have/hv been/ben made/vbn of/in the/at lunar/jj brightness/nn distribution/nn at/in three/cd lunar/jj phases/nns ./.
-These/dts observations/nns indicate/vb that/cs the/at lunar/jj maria/fw-nns heat/vb up/rp more/ql rapidly/rb and/cc also/rb cool/vb off/rp more/ql rapidly/rb than/cs do/do the/at mountainous/jj regions/nns ./.
-Mare/fw-nn-tl Imbrium/np-tl seems/vbz to/to be/be an/at exception/nn and/cc remains/vbz cooler/jjr than/cs the/at regions/nns which/wdt surround/vb it/ppo ./.
+These/dts observations/nns indicate/vb that/cs the/at lunar/jj maria/nns heat/vb up/rp more/ql rapidly/rb and/cc also/rb cool/vb off/rp more/ql rapidly/rb than/cs do/do the/at mountainous/jj regions/nns ./.
+Mare/nn Imbrium/np seems/vbz to/to be/be an/at exception/nn and/cc remains/vbz cooler/jjr than/cs the/at regions/nns which/wdt surround/vb it/ppo ./.
 These/dts contour/nn diagrams/nns also/rb suggest/vb a/at rather/ql rapid/jj falloff/nn in/in the/at radio/nn brightness/nn with/in latitude/nn ./.
 
 
@@ -83,7 +83,7 @@ Such/jj high-resolution/nn observations/nns as/cs these/dts are/ber needed/vbn a
 
 
 	The/at observations/nns of/in Mayer/np ,/, McCullough/np ,/, and/cc Sloanaker/np at/in 3.15/cd cm/nn and/cc of/in Sloanaker/np at/in 10.3/cd cm/nn have/hv not/* previously/rb been/ben published/vbn and/cc will/md be/be briefly/rb described/vbn ./.
-Measurements/nns at/in 3.15/cd cm/nn were/bed obtained/vbn on/in 11/cd days/nns spread/vbn over/in the/at interval/nn May/np 3/cd to/in June/np 19/cd ,/, 1956/cd ,/, using/vbg the/at 50-foot/jj reflector/nn at/in the/at U./np-tl S./np-tl Naval/jj-tl Research/nn-tl Laboratory/nn-tl in/in Washington/np ./.
+Measurements/nns at/in 3.15/cd cm/nn were/bed obtained/vbn on/in 11/cd days/nns spread/vbn over/in the/at interval/nn May/np 3/cd to/in June/np 19/cd ,/, 1956/cd ,/, using/vbg the/at 50-foot/jj reflector/nn at/in the/at U./np S./np Naval/jj Research/nn Laboratory/nn in/in Washington/np ./.
 The/at half-intensity/nn diameter/nn of/in the/at antenna/nn beam/nn was/bedz about/rb 9'/nns ,/, and/cc the/at angle/nn subtended/vbn by/in the/at moon/nn included/vbd the/at entire/jj main/jjs beam/nn and/cc part/nn of/in the/at first/od side/jj lobes/nns ./.
 The/at antenna/nn patterns/nns and/cc the/at power/nn gain/nn at/in the/at peak/nn of/in the/at beam/nn were/bed both/abx measured/vbn (/( Mayer/np ,/, McCullough/np ,/, and/cc Sloanaker/np ,/, 1958/cd )/) ,/, so/cs that/cs the/at absolute/jj power/nn sensitivity/nn of/in the/at antenna/nn beam/nn over/in the/at solid/jj angle/nn of/in the/at moon/nn was/bedz known/vbn ./.
 The/at ratio/nn of/in the/at measured/vbn antenna/nn temperature/nn change/nn during/in a/at drift/nn scan/nn across/in the/at moon/nn to/in the/at average/jj brightness/nn temperature/nn of/in the/at moon/nn over/in the/at antenna/nn beam/nn (/( assuming/vbg that/cs the/at brightness/nn temperature/nn of/in the/at sky/nn is/bez negligible/jj )/) was/bedz found/vbn ,/, by/in graphical/jj integration/nn of/in the/at antenna/nn directivity/nn diagram/nn ,/, to/to be/be 0.85/cd ./.
@@ -94,7 +94,7 @@ The/at variation/nn in/in the/at 3-cm/nn emission/nn of/in the/at moon/nn during
 In/in the/at discussion/nn which/wdt follows/vbz ,/, the/at time/nn average/nn of/in the/at radio/nn emission/nn will/md be/be referred/vbn to/in as/cs the/at constant/jj component/nn ,/, and/cc the/at superimposed/vbn periodic/jj variation/nn will/md be/be called/vbn the/at variable/jj component/nn ./.
 
 
-	The/at 10.3-cm/nn observation/nn of/in Sloanaker/np was/bedz made/vbn on/in May/np 20/cd ,/, 1958/cd ,/, using/vbg the/at 84-foot/nn reflector/nn at/in the/at Maryland/np-tl Point/nn-tl Observatory/nn-tl of/in the/at U./np-tl S./np-tl Naval/jj-tl Research/nn-tl Laboratory/nn-tl ./.
+	The/at 10.3-cm/nn observation/nn of/in Sloanaker/np was/bedz made/vbn on/in May/np 20/cd ,/, 1958/cd ,/, using/vbg the/at 84-foot/nn reflector/nn at/in the/at Maryland/np Point/nn Observatory/nn of/in the/at U./np S./np Naval/jj Research/nn Laboratory/nn ./.
 The/at age/nn of/in the/at moon/nn was/bedz about/rb 2/cd days/nns ./.
 The/at half-intensity/nn diameter/nn of/in the/at main/jjs lobe/nn of/in the/at antenna/nn was/bedz about/rb 18'.5/nns ,/, and/cc the/at brightness/nn temperature/nn was/bedz reduced/vbn by/in assuming/vbg a/at Gaussian/jj shape/nn for/in the/at antenna/nn beam/nn and/cc a/at uniformly/rb bright/jj disk/nn for/in the/at moon/nn ./.
 

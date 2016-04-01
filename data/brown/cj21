@@ -1,7 +1,7 @@
 
 
 
-Introduction/nn-hl ./.-hl
+Introduction/nn ./.
 
 In/in 1/cd we/ppss investigate/vb a/at new/jj series/nn of/in line/nn involutions/nns in/in a/at projective/jj space/nn of/in three/cd dimensions/nns over/in the/at field/nn of/in complex/jj numbers/nns ./.
 These/dts are/ber defined/vbn by/in a/at simple/jj involutorial/jj transformation/nn of/in the/at points/nns in/in which/wdt a/at general/jj line/nn meets/vbz a/at nonsingular/jj quadric/jj surface/nn bearing/vbg a/at curve/nn of/in symbol/nn Af/nn ./.
@@ -10,7 +10,7 @@ No/at generalization/nn of/in these/dts results/nns to/in spaces/nns of/in more/
 
 
 
-1/cd-hl ./.-hl
+1/cd ./.
 
 Let/vb Q/nn be/be a/at nonsingular/jj quadric/jj surface/nn bearing/vbg reguli/nns Af/nn and/cc Af/nn ,/, and/cc let/vb **zg/nn be/be a/at Af/nn curve/nn of/in order/nn K/np on/in Q/nn ./.
 A/at general/jj line/nn L/np meets/vbz Q/nn in/in two/cd points/nns ,/, Af/nn and/cc Af/nn ,/, through/in each/dt of/in which/wdt passes/vbz a/at unique/jj generator/nn of/in the/at regulus/nn ,/, Af/nn ,/, whose/wp$ lines/nns are/ber simple/jj secants/nns of/in Aj/nn ./.
@@ -65,7 +65,7 @@ Finally/rb ,/, the/at image/nn of/in a/at general/jj bundle/nn of/in lines/nns i
 
 
 
-2/cd-hl ./.-hl
+2/cd ./.
 
 The/at preceding/vbg observations/nns make/vb it/ppo clear/jj that/cs there/ex exist/vb line/nn involutions/nns of/in all/abn orders/nns greater/jjr than/in 1/cd with/in no/at complex/nn of/in invariant/jj lines/nns and/cc with/in a/at complex/nn of/in singular/jj lines/nns consisting/vbg exclusively/rb of/in the/at lines/nns which/wdt meet/vb a/at twisted/vbn curve/nn Aj/nn ./.
 We/ppss now/rb shall/md show/vb that/cs any/dti involution/nn with/in these/dts characteristics/nns is/bez necessarily/rb of/in the/at type/nn we/ppss have/hv just/rb described/vbn ./.

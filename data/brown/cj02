@@ -1,7 +1,7 @@
 
 
 
-Abstract/jj-hl 
+Abstract/jj 
 Experiments/nns were/bed made/vbn on/in an/at electric/jj arc/nn applying/vbg a/at porous/jj graphite/nn anode/nn cooled/vbn by/in a/at transpiring/vbg gas/nn (/( Argon/nn )/) ./.
 Thus/rb ,/, the/at energy/nn transferred/vbn from/in the/at arc/nn to/in the/at anode/nn was/bedz partly/rb fed/vbn back/rb into/in the/at arc/nn ./.
 It/pps was/bedz shown/vbn that/cs by/in proper/jj anode/nn design/nn the/at net/jj energy/nn loss/nn of/in the/at arc/nn to/in the/at anode/nn could/md be/be reduced/vbn to/in approximately/rb 15%/nn of/in the/at total/jj arc/nn energy/nn ./.
@@ -12,7 +12,7 @@ Qualitative/jj observations/nns were/bed made/vbn and/cc high-speed/nn motion/nn
 
 
 
-Introduction/nn-hl 
+Introduction/nn 
 The/at high/jj heat/nn fluxes/nns existing/vbg at/in the/at electrode/nn surfaces/nns of/in electric/jj arcs/nns necessitate/vb extensive/jj cooling/nn to/to prevent/vb electrode/nn ablation/nn ./.
 The/at cooling/vbg requirements/nns are/ber particularly/ql severe/jj at/in the/at anode/nn ./.
 In/in free-burning/jj electric/jj arcs/nns ,/, for/in instance/nn ,/, approximately/rb 90%/nn of/in the/at total/jj arc/nn power/nn is/bez transferred/vbn to/in the/at anode/nn giving/vbg rise/nn to/in local/jj heat/nn fluxes/nns in/in excess/nn of/in Af/nn as/cs measured/vbn by/in the/at authors/nns --/-- the/at exact/jj value/nn depending/vbg on/in the/at arc/nn atmosphere/nn ./.
@@ -29,7 +29,7 @@ Heat/nn transfer/nn by/in molecular/jj conduction/nn as/ql well/rb as/cs by/in r
 
 
 	The/at heat/nn transfer/nn to/in the/at anode/nn in/in free/rb burning/vbg arcs/nns is/bez enhanced/vbn by/in a/at hot/jj gas/nn jet/nn flowing/vbg from/in the/at cathode/nn towards/in the/at anode/nn with/in velocities/nns up/rp Af/nn ./.
-This/dt phenomenon/nn has/hvz been/ben experimentally/rb investigated/vbn in/in detail/nn by/in Maecker/np (/( Ref./np 1/cd-tl )/) ./.
+This/dt phenomenon/nn has/hvz been/ben experimentally/rb investigated/vbn in/in detail/nn by/in Maecker/np (/( Ref./np 1/cd )/) ./.
 The/at pressure/nn gradient/nn producing/vbg the/at jet/nn is/bez due/jj to/in the/at nature/nn of/in the/at magnetic/jj field/nn in/in the/at arc/nn (/( rapid/jj decrease/nn of/in current/nn density/nn from/in cathode/nn to/in the/at anode/nn )/) ./.
 Hence/rb ,/, the/at flow/nn conditions/nns at/in the/at anode/nn of/in free/rb burning/vbg arcs/nns resemble/vb those/dts near/in a/at stagnation/nn point/nn ./.
 
@@ -46,7 +46,7 @@ Continuous/jj motion/nn of/in the/at arc/nn contact/nn area/nn at/in the/at anod
 Feedback/nn of/in the/at energy/nn transferred/vbn to/in the/at anode/nn by/in applying/vbg gas/nn transpiration/nn through/in the/at anode/nn ./.
 
 
-	The/at third/od method/nn was/bedz ,/, to/in our/pp$ knowledge/nn ,/, successfully/rb applied/vbn for/in the/at first/od time/nn by/in C./np Sheer/np and/cc co-workers/nns (/( Ref./nn-tl 2/cd )/) ./.
+	The/at third/od method/nn was/bedz ,/, to/in our/pp$ knowledge/nn ,/, successfully/rb applied/vbn for/in the/at first/od time/nn by/in C./np Sheer/np and/cc co-workers/nns (/( Ref./nn 2/cd )/) ./.
 The/at purpose/nn of/in the/at present/jj study/nn is/bez to/to study/vb the/at thermal/jj conditions/nns and/cc to/to establish/vb an/at energy/nn balance/nn for/in a/at transpiration/nn cooled/vbn anode/nn as/ql well/rb as/cs the/at effect/nn of/in blowing/vbg on/in the/at arc/nn voltage/nn ./.
 Gas/nn injection/nn through/in a/at porous/jj anode/nn (/( transpiration/nn cooling/nn )/) not/* only/rb feeds/vbz back/rb the/at energy/nn transferred/vbn to/in the/at anode/nn by/in the/at above/rb mentioned/vbn processes/nns ,/, but/cc also/rb modifies/vbz the/at conditions/nns in/in the/at arc/nn itself/ppl ./.
 A/at detailed/vbn study/nn of/in this/dt latter/ap phenomenon/nn was/bedz not/* attempted/vbn in/in this/dt paper/nn ./.
@@ -55,11 +55,11 @@ The/at anode/nn material/nn was/bedz porous/jj graphite/nn ./.
 Sintered/vbn porous/jj metals/nns should/md be/be usable/jj in/in principle/nn ./.
 However/rb ,/, technical/jj difficulties/nns arise/vb by/in melting/vbg at/in local/jj hot/jj spots/nns ./.
 The/at experimental/jj arrangement/nn as/cs described/vbn below/rb is/bez based/vbn on/in the/at geometry/nn of/in free/rb burning/vbg arcs/nns ./.
-Thus/rb ,/, direct/jj comparisons/nns can/md be/be drawn/vbn with/in free/rb burning/vbg arcs/nns which/wdt have/hv been/ben studied/vbn in/in detail/nn during/in the/at past/ap years/nns and/cc decades/nns by/in numerous/jj investigators/nns (/( Ref./nn-tl 3/cd )/) ./.
+Thus/rb ,/, direct/jj comparisons/nns can/md be/be drawn/vbn with/in free/rb burning/vbg arcs/nns which/wdt have/hv been/ben studied/vbn in/in detail/nn during/in the/at past/ap years/nns and/cc decades/nns by/in numerous/jj investigators/nns (/( Ref./nn 3/cd )/) ./.
 
 
 
-Experimental/jj-hl apparatus/nn-hl 
+Experimental/jj apparatus/nn 
 Figures/nns 1/cd to/in 3/cd show/vb photographic/jj and/cc schematic/jj views/nns of/in the/at test/nn stand/nn and/cc of/in two/cd different/jj models/nns of/in the/at anode/nn holder/nn ./.
 The/at cathode/nn consisted/vbd of/in a/at 1/4''/nn ''/'' diameter/nn thoriated/vbn tungsten/nn rod/nn attached/vbn to/in a/at water/nn cooled/vbn copper/nn tube/nn ./.
 This/dt tube/nn could/md be/be adjusted/vbn in/in its/pp$ axial/jj direction/nn by/in an/at electric/jj drive/nn to/to establish/vb the/at required/vbn electrode/nn spacing/nn ./.
@@ -68,14 +68,14 @@ The/at transpiring/vbg gas/nn ejected/vbn from/in the/at anode/nn formed/vbd a/a
 Inflow/nn of/in air/nn from/in the/at surrounding/vbg atmosphere/nn was/bedz prevented/vbn by/in the/at two/cd disks/nns shown/vbn in/in figure/nn 2/cd ./.
 Argon/nn was/bedz also/rb blown/vbn at/in low/jj velocities/nns (/( mass/nn flow/nn rate/nn Af/nn )/) through/in a/at tube/nn coaxial/jj with/in the/at cathode/nn as/cs an/at additional/jj precaution/nn against/in contamination/nn of/in the/at arc/nn by/in air/nn ./.
 The/at anode/nn consisted/vbd of/in a/at 1/2/cd inch/nn diameter/nn porous/jj graphite/nn plug/nn ,/, 1/4/cd inch/nn long/jj ./.
-The/at graphite/nn was/bedz National/jj-tl Carbon/nn-tl NC/nn 60/cd ,/, which/wdt has/hvz a/at porosity/nn of/in 50%/nn and/cc an/at average/jj pore/nn size/nn of/in 30/cd ./.
+The/at graphite/nn was/bedz National/jj Carbon/nn NC/nn 60/cd ,/, which/wdt has/hvz a/at porosity/nn of/in 50%/nn and/cc an/at average/jj pore/nn size/nn of/in 30/cd ./.
 This/dt small/jj pore/nn size/nn was/bedz required/vbn to/to ensure/vb uniformity/nn of/in the/at flow/nn leaving/vbg the/at anode/nn ./.
-The/at anode/nn plug/nn (/( Figure/nn-tl 2/cd-tl )/) was/bedz inserted/vbn into/in a/at carbon/nn anode/nn holder/nn ./.
+The/at anode/nn plug/nn (/( Figure/nn 2/cd )/) was/bedz inserted/vbn into/in a/at carbon/nn anode/nn holder/nn ./.
 A/at shielded/vbn thermocouple/nn was/bedz used/vbn to/to measure/vb the/at upstream/jj temperature/nn of/in the/at transpiring/vbg gas/nn ./.
 It/pps was/bedz exposed/vbn to/in a/at high/jj velocity/nn gas/nn jet/nn ./.
 A/at plug/nn and/cc a/at tube/nn with/in holes/nns in/in its/pp$ cylindrical/jj walls/nns divided/vbd the/at chamber/nn above/in the/at porous/jj plug/nn into/in two/cd parts/nns ./.
 This/dt arrangement/nn had/hvd the/at purpose/nn to/to prevent/vb heated/vbn gas/nn to/to reach/vb the/at thermocouple/nn by/in natural/jj convection/nn ./.
-Two/cd pyrometers/nns shown/vbn in/in figure/nn 1/cd and/cc 2/cd (/( Pyrometer/nn-tl Instrument/nn-tl Co./nn-tl Model/nn-tl 95/cd-tl )/) served/vbd for/in simultaneous/jj measurement/nn of/in the/at anode/nn surface/nn temperature/nn and/cc the/at temperature/nn distribution/nn along/in the/at anode/nn holder/nn ./.
+Two/cd pyrometers/nns shown/vbn in/in figure/nn 1/cd and/cc 2/cd (/( Pyrometer/nn Instrument/nn Co./nn Model/nn 95/cd )/) served/vbd for/in simultaneous/jj measurement/nn of/in the/at anode/nn surface/nn temperature/nn and/cc the/at temperature/nn distribution/nn along/in the/at anode/nn holder/nn ./.
 Three/cd thermocouples/nns were/bed placed/vbn at/in different/jj locations/nns in/in the/at aluminum/nn disk/nn surrounding/vbg the/at anode/nn holder/nn to/to determine/vb its/pp$ temperature/nn ./.
 
 
@@ -96,9 +96,9 @@ A/at high/jj frequency/nn starter/nn was/bedz used/vbn to/to start/vb the/at arc
 
 
 
-Experimental/jj-hl procedure/nn-hl and/cc-hl error/nn-hl analysis/nn-hl 
-1/cd-hl ./.-hl
-Transpiration/nn-hl cooled/vbn-hl anode/nn-hl with/in-hl carbon/nn-hl anode/nn-hl holder/nn-hl 
+Experimental/jj procedure/nn and/cc error/nn analysis/nn 
+1/cd ./.
+Transpiration/nn cooled/vbn anode/nn with/in carbon/nn anode/nn holder/nn 
 The/at anode/nn holder/nn shown/vbn in/in figure/nn 2/cd was/bedz designed/vbn with/in two/cd goals/nns in/in mind/nn ./.
 The/at heat/nn losses/nns of/in the/at holder/nn were/bed to/to be/be reduced/vbn as/ql far/rb as/cs possible/jj and/cc they/ppss should/md be/be such/jj that/cs an/at accurate/jj heat/nn balance/nn can/md be/be made/vbn ./.
 In/in order/nn to/to reduce/vb the/at number/nn of/in variable/jj parameters/nns ,/, all/abn experiments/nns were/bed made/vbn with/in a/at constant/jj arc/nn length/nn of/in 0.5''/nns ''/'' and/cc a/at current/nn of/in 100/cd Aj/nn ./.
@@ -122,7 +122,7 @@ This/dt calculation/nn results/vbz in/in an/at enthalpy/nn rise/nn which/wdt is/
 
 
 	The/at upstream/jj gas/nn temperature/nn measured/vbn with/in the/at thermocouple/nn shown/vbn in/in figure/nn 2/cd was/bedz Af/nn ./.
-The/at Af/nn values/nns are/ber listed/vbn in/in Table/nn-tl 1/cd-tl together/rb with/in the/at measured/vbn surface/nn temperatures/nns and/cc arc/nn voltages/nns ./.
+The/at Af/nn values/nns are/ber listed/vbn in/in Table/nn 1/cd together/rb with/in the/at measured/vbn surface/nn temperatures/nns and/cc arc/nn voltages/nns ./.
 Simultaneously/rb with/in the/at anode/nn surface/nn temperature/nn and/cc voltage/nn measurements/nns pyrometer/nn readings/nns were/bed taken/vbn along/in the/at cylindrical/jj surface/nn of/in the/at carbon/nn anode/nn holder/nn as/cs indicated/vbn on/in figure/nn 2/cd ./.
 Some/dti of/in these/dts temperatures/nns are/ber plotted/vbn in/in figure/nn 4/cd ./.
 They/ppss showed/vbd no/at marked/vbn dependence/nn on/in the/at flow/nn rate/nn within/in the/at accuracy/nn of/in these/dts measurements/nns ./.
@@ -137,6 +137,6 @@ The/at total/jj heat/nn loss/nn through/in the/at anode/nn holder/nn included/vb
 It/pps was/bedz calculated/vbn from/in the/at temperature/nn gradient/nn Af/nn at/in Af/nn inch/nn as/cs Af/nn ./.
 The/at total/jj heat/nn flux/nn from/in the/at porous/jj plug/nn into/in the/at plug/nn holder/nn is/bez thereby/rb Af/nn ./.
 The/at temperature/nn distribution/nn of/in figure/nn 4/cd gives/vbz Af/nn for/in all/abn blowing/vbg rates/nns ,/, assuming/vbg Af/nn ./.
-The/at temperature/nn dependent/jj value/nn of/in **ye/nn was/bedz taken/vbn from/in Ref./nn-tl 7/cd-tl ./.
+The/at temperature/nn dependent/jj value/nn of/in **ye/nn was/bedz taken/vbn from/in Ref./nn 7/cd ./.
 The/at radiation/nn loss/nn from/in the/at anode/nn surface/nn was/bedz computed/vbn according/in to/in Af/nn where/wrb Af/nn is/bez the/at mean/nn of/in the/at fourth/od powers/nns of/in the/at temperatures/nns Af/nn and/cc Af/nn calculated/vbn analogously/rb to/in equation/nn (/( 1/cd )/) ./.
 

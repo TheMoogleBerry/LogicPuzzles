@@ -17,7 +17,7 @@ It/pps places/vbz the/at various/jj factors/nns involved/vbn in/in the/at proble
 
 
 	The/at first/od step/nn in/in using/vbg a/at formula/nn is/bez to/to insert/vb the/at numerical/jj values/nns of/in the/at factors/nns involved/vbn in/in their/pp$ correct/jj positions/nns in/in the/at formula/nn ./.
-This/dt changes/vbz the/at formula/nn to/in an/at ``/`` equation/nn ''/'' ./.
+This/dt changes/vbz the/at formula/nn to/in an/at ``/'' equation/nn ''/'' ./.
 The/at equation/nn is/bez used/vbn for/in the/at mathematical/jj process/nn of/in solving/vbg the/at problem/nn ./.
 
 
@@ -31,7 +31,7 @@ They/ppss indicate/vb simple/jj division/nn ,/, multiplication/nn ,/, subtractio
 The/at lower/jjr number/nn is/bez always/rb divided/vbn into/in the/at upper/jj number/nn :/: Af/nn 
 
 	./.
-The/at symbol/nn for/in multiplication/nn is/bez ``/`` **b/nn ''/'' ./.
+The/at symbol/nn for/in multiplication/nn is/bez ``/'' **b/nn ''/'' ./.
 It/pps is/bez used/vbn to/to separate/vb two/cd or/cc more/ap numbers/nns in/in a/at row/nn ./.
 For/in example/nn :/: Af/nn ./.
 Numbers/nns to/to be/be multiplied/vbn together/rb may/md be/be multiplied/vbn in/in any/dti order/nn ./.
@@ -70,7 +70,7 @@ They/ppss are/ber included/vbn in/in all/abn types/nns of/in mathematical/jj han
 Shortening/vbg the/at results/nns in/in this/dt manner/nn will/md not/* have/hv any/dti detrimental/jj effect/nn on/in the/at accuracy/nn of/in the/at final/jj result/nn ./.
 
 
-	Some/dti formulas/nns contain/vb ``/`` constants/nns ''/'' ./.
+	Some/dti formulas/nns contain/vb ``/'' constants/nns ''/'' ./.
 A/at constant/nn is/bez a/at number/nn that/wps remains/vbz the/at same/ap regardless/rb of/in the/at other/ap numbers/nns used/vbn in/in the/at formula/nn and/cc the/at resultant/jj equation/nn ./.
 It/pps is/bez a/at number/nn without/in which/wdt the/at equation/nn cannot/md* be/be solved/vbn correctly/rb ./.
 
@@ -83,15 +83,15 @@ We'll/ppss+md take/vb them/ppo in/in the/at general/jj order/nn of/in their/pp$ 
 
 
 
-Engine/nn-hl displacement/nn-hl 
+Engine/nn displacement/nn 
 A/at rodder/nn should/md be/be able/jj to/to compute/vb the/at displacement/nn of/in his/pp$ engine/nn ./.
-Displacement/nn is/bez sometimes/rb referred/vbn to/in as/cs ``/`` swept/vbn volume/nn ''/'' ./.
+Displacement/nn is/bez sometimes/rb referred/vbn to/in as/cs ``/'' swept/vbn volume/nn ''/'' ./.
 Most/ap entry/nn blanks/nns for/in competitive/jj events/nns require/vb engine/nn displacement/nn information/nn because/rb of/in class/nn restrictions/nns ./.
 It/pps is/bez good/jj to/to be/be able/jj to/to compute/vb displacement/nn so/cs that/cs changes/nns in/in it/ppo resulting/vbg from/in boring/vbg and/cc stroking/nn can/md be/be computed/vbn ./.
 
 
 	Factors/nns involved/vbn in/in the/at displacement/nn formula/nn are/ber the/at bore/nn diameter/nn of/in the/at engine's/nn$ cylinders/nns ,/, the/at length/nn of/in the/at piston/nn stroke/nn ,/, the/at number/nn of/in cylinders/nns in/in the/at engine/nn ,/, and/cc a/at constant/nn ./.
-The/at constant/nn is/bez ,/, which/wdt is/bez one-quarter/nn of/in 3.1416/cd ,/, another/dt constant/nn known/vbn as/cs ``/`` pi/nn ''/'' ./.
+The/at constant/nn is/bez ,/, which/wdt is/bez one-quarter/nn of/in 3.1416/cd ,/, another/dt constant/nn known/vbn as/cs ``/'' pi/nn ''/'' ./.
 Pi/nn is/bez used/vbn in/in formulas/nns concerned/vbn with/in the/at dimensions/nns of/in circles/nns ./.
 
 
@@ -116,7 +116,7 @@ The/at different/jj steps/nns will/md look/vb like/cs this/dt :/: Af/nn
 
 
 ./.
-Compression/nn-hl ratio/nn-hl 
+Compression/nn ratio/nn 
 A/at cylinder's/nn$ compression/nn ratio/nn is/bez computed/vbn by/in comparing/vbg the/at cylinder's/nn$ volume/nn ,/, or/cc its/pp$ displacement/nn ,/, with/in the/at total/nn volume/nn of/in the/at cylinder/nn and/cc its/pp$ combustion/nn chamber/nn ./.
 Cylinder/nn volume/nn can/md be/be determined/vbn mathematically/rb but/cc combustion/nn chamber/nn volume/nn must/md be/be measured/vbn with/in a/at liquid/nn ./.
 
@@ -147,7 +147,7 @@ The/at volume/nn of/in the/at opening/nn is/bez added/vbn to/in the/at combustio
 Compute/vb this/dt volume/nn by/in measuring/vbg the/at distance/nn from/in the/at top/nn of/in the/at block/nn to/in the/at piston/nn head/nn as/ql accurately/rb as/cs possible/jj with/in a/at depth/nn micrometer/nn or/cc some/dti other/ap precision/nn measuring/vbg device/nn and/cc then/rb multiply/vb the/at area/nn of/in the/at cylinder/nn by/in the/at depth/nn ./.
 The/at formula/nn for/in this/dt step/nn is/bez :/: Af/nn ./.
 This/dt volume/nn is/bez added/vbn to/in the/at total/nn volume/nn of/in the/at combustion/nn chamber/nn and/cc head/nn gasket/nn opening/nn ./.
-The/at total/nn of/in these/dts three/cd volumes/nns is/bez the/at ``/`` final/jj combustion/nn chamber/nn volume/nn ''/'' ./.
+The/at total/nn of/in these/dts three/cd volumes/nns is/bez the/at ``/'' final/jj combustion/nn chamber/nn volume/nn ''/'' ./.
 
 
 	After/cs the/at factors/nns just/rb described/vbn have/hv been/ben computed/vbn ,/, they/ppss are/ber applied/vbn to/in the/at following/vbg formula/nn :/: Af/nn 
@@ -164,7 +164,7 @@ The/at only/ap way/nn to/to determine/vb the/at final/jj combustion/nn chamber/n
 
 
 
-Gear/nn-hl ratio/nn-hl --/---hl speed/nn-hl relationships/nns-hl 
+Gear/nn ratio/nn --/-- speed/nn relationships/nns 
 There/ex are/ber four/cd versions/nns of/in the/at formula/nn that/wps involves/vbz the/at relationships/nns of/in car/nn speed/nn ,/, engine/nn speed/nn ,/, rear/jj axle/nn gear/nn ratio/nn ,/, and/cc rear/jj tire/nn size/nn ./.
 By/in using/vbg the/at appropriate/jj version/nn any/dti one/cd of/in these/dts factors/nns can/md be/be determined/vbn for/in any/dti combination/nn of/in the/at other/ap three/cd ./.
 
