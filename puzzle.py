@@ -34,6 +34,7 @@ class Puzzle(object):
 		"Names" : [ "Allen", "Chris", "Julio", "Luke" ]
 		'''
 		self.data_group = data_group
+		self.kb_rule_list = list() # list of KB rules
 
 
 	def process_hint(self, hint_text):
@@ -48,6 +49,10 @@ class Puzzle(object):
 		'''
 
 		brown_stop_words = ['in', 'bez']
+		expr_words = {'after': 'PLUS'}
+		data_group_words = ['day', 'days']
+
+		has_expression = False
 
 		# remove punctuation
 		exclude = set('.')
@@ -58,19 +63,47 @@ class Puzzle(object):
 		for i in new_hint:
 			new_hint_text.append(i[:i.find('/')])
 			hint_map[i[:i.find('/')]] = i[i.find('/') + 1:]
-		#print(hint_map)
+				# Check if hint contains an expression
+		for index, expr_word in enumerate(expr_words.keys()):
+			if expr_word in hint_map:
+				has_expression = True
 
 		# Remove stop words from POS classifier
 		hint_map_new = { k:v for k,v in hint_map.items() if v not in brown_stop_words}
+		kb_return_map_key = "AND"
+		kb_return_list = list()
 		for (k,v) in self.data_group.items():
 			for word in hint_map_new:
 				if word in v:
-					print(word)
-					print("{}: {}".format(k, v.index(word)))
+					d = dict()
+					kb_return_list.append({k: v.index(word)})
 
-		#iterate through all elements in data group to check for contents
+		return_map = dict()
+		if has_expression:
+
+			expr_map = dict()
+
+			num = [el for el, val in hint_map_new.items() if val == 'cd'][0]
+			expr_map["NUM"] = num
+
+			dg = [el for el, val in hint_map_new.items() if el in data_group_words][0]
+			expr_map["DATAGROUP"] = dg
+
+			op = [expr_words[el] for el, val in hint_map_new.items() if el in list(expr_words.keys())]
+			expr_map["OP"] = op
+			# for el, val in hint_map_new.items():
+			# 	print(el)
+			# 	if el in list(expr_words.keys()):
+			# 		print(el)
+			# 		op = expr_words[el]
+			# 		print(op)
+			kb_return_list.append({"EXP" : expr_map})
+			
 
 		# return appropriate KB map result
+		return_map = {"AND": kb_return_list}
+		self.kb_rule_list.append(return_map)
+		return return_map
 
 	def print_hint(self):
 		print("original text: ", self.text)

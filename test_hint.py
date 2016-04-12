@@ -9,8 +9,8 @@ Information for the {@param: data_group}:
 
 data_group = {"Days" : [ "10", "11", "12", "13" ], "Departures" : [ "Buttonwillow", "Coulterville", "Farley", "Leland" ], "Names" : [ "Allen", "Chris", "Julio", "Luke"] }
 puzzle = Puzzle(data_group)
-puzzle.process_hint('Luke/np is/bez scheduled/vbd to/in leave/vb on/in June/np 11/cd.')
-puzzle.process_hint('The/at conductor/nn departing/vbg from/in Leland/np will/md leave/vb 1/cd day/nn after/in Chris/np')
+# print(puzzle.process_hint('Luke/np is/bez scheduled/vbd to/in leave/vb on/in June/np 11/cd.'))
+print(puzzle.process_hint('The/at conductor/nn departing/vbg from/in Leland/np will/md leave/vb 1/cd day/nn after/cs Chris/np'))
 #hint1 = Hint('The person departing from Buttonwillow will leave 2 days after Julio.')
 
 '''
