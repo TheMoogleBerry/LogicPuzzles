@@ -178,76 +178,126 @@ class logicPuzzleSolver:
         # Data Group is secondary key
         else:
             self.kbSolution[dg2Key][dg2Val] = [dg1Val]
-                
+     
+    def handleDataGroupAndExpressions(self, keyS1, valueS1, exprKey, exprVal, exprDg, op, num):
+        if keyS1 != exprKey:
+            if (self.kbSolutionPairs[keyS1] == exprKey):
+                if exprVal in self.kbSolution[keyS1][valueS1]:
+                    self.kbSolution[keyS1][valueS1].remove(exprVal)
+            else:
+                if valueS1 in self.kbSolution[exprKey][exprVal]:
+                    self.kbSolution[exprKey][exprVal].remove(valueS1)
+        
+        if op == "PLUS":
+            proplist = list(range(len(self.kbAllOptions) - num))
+            proplist1 = [x+num for x in proplist]
+            propobj = { exprDg : proplist1 }
+            propobj2 = { exprDg : proplist }
+            
+        elif op == "SUBTRACT":
+            proplist = list(range(len(self.kbAllOptions) - num))
+            proplist1 = [x+num for x in proplist]
+            propobj = { exprDg : proplist }
+            propobj2 = { exprDg : proplist1 }
+        self.handleDataGroupAndProposition(keyS1, valueS1, propobj, "OR")
+        self.handleDataGroupAndProposition(exprKey, exprVal, propobj2, "OR")
+        
+        # PrimaryDataGroup is main key
+        if (self.kbSolutionPairs[exprKey] == exprDg):
+            # Check if expression value is defined
+            if len(self.kbSolution[exprKey][exprVal]) == 1:
+                if op == "PLUS":
+                    exprVal = self.kbSolution[exprKey][exprVal][0] + num
+                elif op == "SUBTRACT":
+                    exprVal = self.kbSolution[exprKey][exprVal][0] - num
+                self.handleDataGroupAndDataGroup(keyS1, valueS1, exprDg, exprVal)
+            
+        # PrimaryDataGroup is secondary key   
+        else:
+            numAppearances = 0
+            option = 0
+            for opt in self.kbAllOptions:
+                arr = self.kbSolution[exprDg][opt]
+                if exprVal in arr and len(arr) == 1:
+                    option = opt
+                    numAppearances += 1
+            if numAppearances == 1:
+                if op == "PLUS":
+                    exprVal = option + num
+                elif op == "SUBTRACT":
+                    exprVal = option - num
+                self.handleDataGroupAndDataGroup(keyS1, valueS1, exprDg, exprVal)
+    
+     
     def solvePuzzle(self):
-        for i in range(len(self.kbClues) + 6):
+        for i in range(len(self.kbClues) * 2):
             clue = self.kbClues[i%len(self.kbClues)]    # Full clue from the knowledge base
             prop = list(clue.keys())[0]     # Proposition that binds the clue
             stmnts = list(clue.values())[0] # List of statements in the clue
-            for j in range(len(stmnts)):
-                stmnt1 = stmnts[j]
-                keyS1 = list(stmnt1.keys())[0] # Key for statement 1
-                valueS1 = stmnt1[keyS1]
-				
-                for k in range(j + 1, len(stmnts)):
-                    stmnt2 = stmnts[k]
-                    keyS2 = list(stmnt2.keys())[0] # Key for statment 2
+            if prop == "AND":    
+                for j in range(len(stmnts)):
+                    stmnt1 = stmnts[j]
+                    keyS1 = list(stmnt1.keys())[0] # Key for statement 1
+                    valueS1 = stmnt1[keyS1]
+                    
+                    for k in range(j + 1, len(stmnts)):
+                        stmnt2 = stmnts[k]
+                        keyS2 = list(stmnt2.keys())[0] # Key for statment 2
 
-                    # DataGroup and DataGroup
-                    if isDataGroup(keyS1, self.DataGroup) and isDataGroup(keyS2, self.DataGroup):
-                        self.handleDataGroupAndDataGroup(keyS1, valueS1, keyS2, stmnt2[keyS2])
-						
-                    # DataGroup(s1) and Proposition(s2)
-                    elif isDataGroup(keyS1, self.DataGroup) and isProposition(keyS2):
-                        s2obj = stmnt2[keyS2] # Values in proposition
-                        self.handleDataGroupAndProposition(keyS1, valueS1, s2obj, keyS2)                    
+                        # DataGroup and DataGroup
+                        if isDataGroup(keyS1, self.DataGroup) and isDataGroup(keyS2, self.DataGroup):
+                            self.handleDataGroupAndDataGroup(keyS1, valueS1, keyS2, stmnt2[keyS2])
+                            
+                        # DataGroup(s1) and Proposition(s2)
+                        elif isDataGroup(keyS1, self.DataGroup) and isProposition(keyS2):
+                            s2obj = stmnt2[keyS2] # Values in proposition
+                            self.handleDataGroupAndProposition(keyS1, valueS1, s2obj, keyS2)                    
+                            
+                        # DataGroup(s2) and Proposition(s1)
+                        elif isDataGroup(keyS2, self.DataGroup) and isProposition(keyS1):
+                            valueS2 = stmnt2[keyS2]
+                            self.handleDataGroupAndProposition(keyS2, valueS2, valueS1, keyS1)
                         
-                    # DataGroup(s2) and Proposition(s1)
-                    elif isDataGroup(keyS2, self.DataGroup) and isProposition(keyS1):
+                        # DataGroupS1 and Expression
+                        elif isDataGroup(keyS1, self.DataGroup) and keyS2 == "EXPR":
+                            expr = stmnt2[keyS2]
+                            exprKey = ""
+                            for key in list(expr.keys()):
+                                if isDataGroup(key, self.DataGroup):
+                                    exprKey = key
+                            exprVal = expr[exprKey]
+                            exprDg = expr["DataGroup"]
+                            op = expr["OP"]
+                            op2 = ""
+                            if op == "PLUS":
+                                op2 = "SUBTRACT"
+                            else:
+                                op2 = "PLUS"
+                            num = expr["NUM"]
+                            self.handleDataGroupAndExpressions(keyS1, valueS1, exprKey, exprVal, exprDg, op, num)
+                            self.handleDataGroupAndExpressions(exprKey, exprVal, keyS1, valueS1, exprDg, op2, num)
+ 
+            
+            elif prop == "XOR":
+                for j in range(len(stmnts)):
+                    stmnt1 = stmnts[j]
+                    keyS1 = list(stmnt1.keys())[0] # Key for statement 1
+                    valueS1 = stmnt1[keyS1]
+                    
+                    for k in range(j + 1, len(stmnts)):
+                        stmnt2 = stmnts[k]
+                        keyS2 = list(stmnt2.keys())[0] # Key for statment 2
                         valueS2 = stmnt2[keyS2]
-                        self.handleDataGroupAndProposition(keyS2, valueS2, valueS1, keyS1)
-					
-                    # DataGroupS1 and Expression
-                    elif isDataGroup(keyS1, self.DataGroup) and keyS2 == "EXPR":
-                        expr = stmnt2[keyS2]
-                        primaryDataGroupKey = ""
-                        for key in list(expr.keys()):
-                            if isDataGroup(key, self.DataGroup):
-                                primaryDataGroupKey = key
-                        primaryDataGroupVal = expr[primaryDataGroupKey]
-                        secondaryDataGroup = expr["DataGroup"]
-                        op = expr["OP"]
-                        num = expr["NUM"]
-                        if op == "PLUS":
-                            proplist = list(range(len(self.kbAllOptions) - num))
-                            propobj = { secondaryDataGroup : proplist }
-
-                        self.handleDataGroupAndProposition(primaryDataGroupKey, primaryDataGroupVal, propobj, "OR")
-
-                        # PrimaryDataGroup is main key
-                        if (self.kbSolutionPairs[primaryDataGroupKey] == secondaryDataGroup):
-                            # Check if expression value is defined
-                            if len(self.kbSolution[primaryDataGroupKey][primaryDataGroupVal]) == 1:
-                                if op == "PLUS":
-                                    exprVal = self.kbSolution[primaryDataGroupKey][primaryDataGroupVal][0] + num
-                                self.handleDataGroupAndDataGroup(keyS1, valueS1, secondaryDataGroup, exprVal)
-							
-                        # PrimaryDataGroup is secondary key   
-                        else:
-                            numAppearances = 0
-                            option = 0
-                            for opt in self.kbAllOptions:
-                                arr = self.kbSolution[secondaryDataGroup][opt]
-                                if primaryDataGroupVal in arr and len(arr) == 1:
-                                    option = opt
-                                    numAppearances += 1
-                            if numAppearances == 1:
-                                if op == "PLUS":
-                                    exprVal = option + num
-                                self.handleDataGroupAndDataGroup(keyS1, valueS1, secondaryDataGroup, exprVal)
-						  
+                        if keyS2 != keyS1:
+                            if (self.kbSolutionPairs[keyS1] == keyS2):
+                                if valueS2 in self.kbSolution[keyS1][valueS1]:
+                                    self.kbSolution[keyS1][valueS1].remove(valueS2)
+                            else:
+                                if valueS1 in self.kbSolution[keyS2][valueS2]:
+                                    self.kbSolution[keyS2][valueS2].remove(valueS1)
+                        
             if self.updateAfterClue():
-                print(i)
+                #print(i)
                 #print(clue)
                 #self.printKbSolution()
                 #print("\n")
@@ -255,7 +305,6 @@ class logicPuzzleSolver:
                 self.printSolutionWithNames()
                 break
             # DataGroupS2 and Expression
-            #print(clue)
-            #self.printKbSolution()
-            #print("\n") 
-   
+            print(clue)
+            self.printKbSolution()
+            print("\n") 
