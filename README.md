@@ -1,15 +1,22 @@
 # LogicPuzzles
 CSE 5522: AI Game Group Project
 
-Execute the following commands in the terminal before running the program. You may need to use sudo before the commands.
+Contributors: Andrew Motika, Johnny Mercado, Samuel Rosenstein
 
-(Note: Python3 must be installed)
+Structure of the project:
 
-```
-pip3 install pillow
-pip3 install pytesseract
-```
+ ---------------      ----------------------      ----------------------
+|POS Classifier | -> | Puzzle Hint Processor| -> | Knowlegebase Solver |
+ ---------------      ----------------------      ----------------------
 
-Once the aforementioned libraries are installed, execute the following to run the image-to-text program.
+### POS Classifier
 
-`python3 get_text.py`
+### Puzzle Hint Processor
+Contains one class: Puzzle
+Implements the following method:
+...process_hint(hint_text)
+
+
+### Knowlegebase Solver
+
+
