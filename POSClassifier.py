@@ -45,8 +45,9 @@ class POSClassifier(object):
 
         # Retrieve the current tag set
         cursor = self.connection.cursor()
-        cursor.execute("SELECT lower(Tag) as Tag, Occurrences FROM Tags")
+        cursor.execute("SELECT lower(Tag) as Tag, TotalOccurrences FROM Tags")
         self.tags = cursor.fetchall()
+        cursor.close()
 
     def __del__(self):
         self.connection.close()
@@ -72,36 +73,49 @@ class POSClassifier(object):
 
         # Pull probablistic data from these files
         tags = array_column(self.tags, "Tag")
-        emission = pandas.DataFrame(columns=tags)
-        transition = pandas.DataFrame(index=tags, columns=tags)
-        emission.fillna(0, inplace=True)
-        transition.fillna(0, inplace=True)
-        last_class = None
+        vocabulary = set()
+
+        # Pandas copies memory over for appending so must iterate for unique
+        # words first
         for line in training_file:
             # Ensure this doesn't just return an empty line
             line = line.strip()
             if len(line) > 0:
-                # Parse line into observation/classification
+                # Parse line into 'observation/classification'
                 words = line.split(' ')
 
                 # Iterate over each word to get the word and classification
                 for word in words:
                     # Separate into tag & classification
                     context = word.split('/')
+                    vocabulary.add(context[0].lower().strip())
+
+        # Prepare necessary data structures
+        emission = pandas.DataFrame(index=vocabulary, columns=tags)
+        transition = pandas.DataFrame(index=tags, columns=tags)
+        emission.fillna(0, inplace=True)
+        transition.fillna(0, inplace=True)
+        last_class = None
+
+        # Iterate to update the emissions and
+        training_file.seek(0)
+        for line in training_file:
+            # Ensure this doesn't just return an empty line
+            line = line.strip()
+            if len(line) > 0:
+                # Parse line into 'observation/classification'
+                words = line.split(' ')
+
+                # Iterate over each word to get the word and classification
+                for word in words:
+                    # Separate into tag & classification
+                    context = word.split('/')
+                    word = context[0].lower()
                     context_tags = context[1].split('+')
 
                     # Update the emission matrix
-                    if context[0] not in emission.index:
-                        # If not found, create and append
-                        row = pandas.DataFrame(index=[context[0]], columns=tags)
-                        row.fillna(0, inplace=True)
-                        for context_tag in context_tags:
-                            row[context_tag] += 1
-                        emission = emission.append(other=row)
-                    else:
-                        # Update the necessary columns
-                        for context_tag in context_tags:
-                            emission[context[0]][context_tag] += 1
+                    for context_tag in context_tags:
+                        emission[context_tag][word] += 1
 
                     # Update the transition
                     if last_class != None:
@@ -112,25 +126,37 @@ class POSClassifier(object):
                     # Update the last_class
                     last_class = context_tags
 
-                    print(emission)
-
         # Pull info from the database that needs to be updated & merge arrays
+        # TODO: Need to optimize
+        cursor = self.connection.cursor()
+        word_totals = {}
+        tag_totals = {}
+        for dest_tag, row in transition.iteritems():
+            for origin_tag, occurrence in row.iteritems():
+                # Retrieve total occurence data if it could not be found
+                if origin_tag not in tag_totals:
+                    cursor.execute('SELECT TotalOccurrences FROM Tags WHERE Tag = ?', (origin_tag,))
+                    tag_totals[origin_tag] = cursor.fetchone()
+                    if tag_totals[origin_tag] == None:
+                        cursor.execute('INSERT INTO Tags (Tag, TotalOccurrences) VALUES (?, ?)', (origin_tag, 1))
+                        tag_totals[origin_tag] = 1
+                    else:
+                        tag_totals[origin_tag] = tag_totals[origin_tag]['TotalOccurrences']
+                tag_totals[origin_tag] = tag_totals[origin_tag] + int(occurrence)
 
-        # Push information to the database
+                # Grab data for this specific transition
+                cursor.execute('SELECT Occurrences FROM Transitions WHERE OriginTag = ? AND DestTag = ?', (origin_tag, dest_tag))
+                db_occurrence = cursor.fetchone()
+                if db_occurrence == None:
+                    # We need to add one if it doesn't exists
+                    cursor.execute('INSERT INTO Transitions (OriginTag, DestTag, Occurrences) VALUES (?, ?, ?)', (origin_tag, dest_tag, 0))
+                    db_occurrence = 0
+                else:
+                    db_occurrence = db_occurrence['Occurrences']
 
-        # Close unnecessary resources
-        training_file.close()
+                # Update the data
+                db_occurrence += int(occurrence)
+                cursor.execute('UPDATE Transitions SET Occurrences = ? WHERE OriginTag = ? AND DestTag = ?', (int(db_occurrence), origin_tag, dest_tag))
 
-    def classify(self, text):
-        """
-        Takes a body of text and transforms it to an array of classification for
-        each word in the body of text, where its position in the returned array
-        is determined by its position in the text.
-
-        Args:
-            text (str): The body of text that needs to be classified
-
-        Returns:
-            str[]: The classifcation of each word in the body of text
-        """
-        pass
+test = POSClassifier()
+test.train()

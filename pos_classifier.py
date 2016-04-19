@@ -7,7 +7,7 @@ The tags being used are currently those in use for the brown corpus
 from __future__ import print_function
 import sqlite3
 import pandas
-import os.path
+import os
 
 WEIGHT_FILE = 'data/viterbi.sqlite3'
 DEFAULT_TRAINING_PATH = 'data/brown'
@@ -88,7 +88,9 @@ class POSClassifier(object):
                 for word in words:
                     # Separate into tag & classification
                     context = word.split('/')
-                    vocabulary.add(context[0].lower())
+                    word = context[0].lower().strip()
+                    if word not in vocabulary:
+                        vocabulary.add(word)
 
         # Prepare necessary data structures
         emission = pandas.DataFrame(index=vocabulary, columns=tags)
@@ -110,12 +112,11 @@ class POSClassifier(object):
                 for word in words:
                     # Separate into tag & classification
                     context = word.split('/')
-                    word = context[0].lower()
+                    word = context[0].lower().strip()
                     context_tags = context[1].split('+')
 
                     # Update the emission matrix
                     for context_tag in context_tags:
-                        print(emission.index.values)
                         emission[context_tag][word] += 1
 
                     # Update the transition
@@ -136,66 +137,82 @@ class POSClassifier(object):
             for origin_tag, occurrence in row.iteritems():
                 # Retrieve total occurence data if it could not be found
                 if origin_tag not in tag_totals:
-                    cursor.execute('SELECT TotalOccurrences FROM Tags WHERE Tag = ?', (origin_tag,))
+                    cursor.execute('SELECT TotalOccurrences FROM Tags WHERE Tag = ?', (origin_tag.upper().strip(),))
                     tag_totals[origin_tag] = cursor.fetchone()
                     if tag_totals[origin_tag] == None:
-                        cursor.execute('INSERT INTO Tags (Tag, TotalOccurrences) VALUES (?, ?)', (origin_tag, 1))
+                        cursor.execute('INSERT INTO Tags (Tag, TotalOccurrences) VALUES (?, ?)', (origin_tag.upper().strip(), 1))
                         tag_totals[origin_tag] = 1
                     else:
-                        tag_totals[origin_tag] = tag_totals[origin_tag]['TotalOccurrences']
-                tag_totals[origin_tag] = tag_totals[origin_tag] + int(occurrence)
+                        tag_totals[origin_tag] = int(tag_totals[origin_tag]['TotalOccurrences'])
+                tag_totals[origin_tag] += int(occurrence)
 
                 # Grab data for this specific transition
-                cursor.execute('SELECT Occurrences FROM Transitions WHERE OriginTag = ? AND DestTag = ?', (origin_tag, dest_tag))
+                cursor.execute('SELECT Occurrences FROM Transitions WHERE OriginTag = ? AND DestTag = ?', (origin_tag.upper().strip(), dest_tag))
                 db_occurrence = cursor.fetchone()
                 if db_occurrence == None:
                     # We need to add one if it doesn't exists
-                    cursor.execute('INSERT INTO Transitions (OriginTag, DestTag, Occurrences) VALUES (?, ?, ?)', (origin_tag, dest_tag, 0))
+                    cursor.execute('INSERT INTO Transitions (OriginTag, DestTag, Occurrences) VALUES (?, ?, ?)', (origin_tag.upper().strip(), dest_tag, 0))
                     db_occurrence = 0
                 else:
                     db_occurrence = db_occurrence['Occurrences']
 
                 # Update the data
                 db_occurrence += int(occurrence)
-                cursor.execute('UPDATE Transitions SET Occurrences = ? WHERE OriginTag = ? AND DestTag = ?', (int(db_occurrence), origin_tag, dest_tag))
+                cursor.execute('UPDATE Transitions SET Occurrences = ? WHERE OriginTag = ? AND DestTag = ?', (int(db_occurrence), origin_tag.upper().strip(), dest_tag))
 
         for tag, row in emission.iteritems():
             for word, occurrence in row.iteritems():
                 # Retrieve total occurence data if it could not be found
                 if word not in word_totals:
                     cursor.execute('SELECT TotalOccurrences FROM Words WHERE Word = ?', (word,))
-                    word_totals[origin_tag] = cursor.fetchone()
-                    if word_totals[origin_tag] == None:
+                    word_totals[word] = cursor.fetchone()
+                    if word_totals[word] == None:
                         cursor.execute('INSERT INTO Words (Word, TotalOccurrences) VALUES (?, ?)', (word, 1))
-                        word_totals[origin_tag] = 1
+                        word_totals[word] = 1
                     else:
-                        word_totals[origin_tag] = word_totals[origin_tag]['TotalOccurrences']
-                word_totals[origin_tag] = word_totals[origin_tag] + int(occurrence)
+                        word_totals[word] = int(word_totals[word]['TotalOccurrences'])
+                word_totals[word] += int(occurrence)
 
                 # Grab data for this specific emission
-                cursor.execute('SELECT Occurrences FROM Emissions WHERE Word = ? AND Tag = ?', (word, tag))
+                cursor.execute('SELECT Occurrences FROM Emissions WHERE Word = ? AND Tag = ?', (word, tag.upper().strip()))
                 db_occurrence = cursor.fetchone()
                 if db_occurrence == None:
                     # We need to add the entry
-                    cursor.execute('INSERT INTO Emissions (Word, Tag, Occurrences) VALUES (?, ?, ?)', (word, tag, 0))
+                    cursor.execute('INSERT INTO Emissions (Word, Tag, Occurrences) VALUES (?, ?, ?)', (word, tag.upper().strip(), 0))
                     db_occurrence = 0
                 else:
                     db_occurrence = db_occurrence['Occurrences']
 
                 # Update the data
                 db_occurrence += int(occurrence)
-                cursor.execute('UPDATE Emissions SET Occurrences = ? WHERE Word = ? AND Tag = ?', (int(db_occurrence), word, tag))
+                cursor.execute('UPDATE Emissions SET Occurrences = ? WHERE Word = ? AND Tag = ?', (int(db_occurrence), word, tag.upper().strip()))
 
         # Update totals in general
-        for word, occurence in word_totals:
+        for word, occurence in word_totals.items():
             cursor.execute('UPDATE Words SET TotalOccurrences = ? WHERE Word = ?', (int(occurence), word))
-        for tag, occurence in tag_totals:
-            cursor.execute('UPDATE Tags SET TotalOccurrences = ? WHERE tag = ?', (int(occurence), tag))
+        for tag, occurence in tag_totals.items():
+            cursor.execute('UPDATE Tags SET TotalOccurrences = ? WHERE tag = ?', (int(occurence), (tag.upper().strip())))
 
         # Close unnecessary resources
         cursor.close()
         self.connection.commit()
         training_file.close()
+
+    def mass_train(self):
+        # Reset database
+        cursor = self.connection.cursor()
+
+        cursor.execute('UPDATE Tags SET TotalOccurrences = 0')
+        cursor.execute('DELETE FROM Words')
+        cursor.execute('DELETE FROM Emissions')
+        cursor.execute('DELETE FROM Transitions')
+
+        cursor.close()
+        self.connection.commit()
+
+        for f in os.listdir(DEFAULT_TRAINING_PATH):
+            print('Training w/ ' + f)
+            self.train(DEFAULT_TRAINING_PATH + '/' + f)
 
     def classify(self, text):
         """
@@ -212,4 +229,4 @@ class POSClassifier(object):
         pass
 
 test = POSClassifier()
-test.train()
+test.mass_train()
