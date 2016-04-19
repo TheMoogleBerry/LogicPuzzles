@@ -87,7 +87,7 @@ class POSClassifier(object):
                 # Iterate over each word to get the word and classification
                 for word in words:
                     # Separate into tag & classification
-                    context = word.split('/')
+                    context = word.rsplit('/', maxsplit=1)
                     word = context[0].lower().strip()
                     if word not in vocabulary:
                         vocabulary.add(word)
@@ -111,7 +111,7 @@ class POSClassifier(object):
                 # Iterate over each word to get the word and classification
                 for word in words:
                     # Separate into tag & classification
-                    context = word.split('/')
+                    context = word.rsplit('/', maxsplit=1)
                     word = context[0].lower().strip()
                     context_tags = context[1].split('+')
 
