@@ -230,7 +230,7 @@ class logicPuzzleSolver:
     
      
     def solvePuzzle(self):
-        for i in range(len(self.kbClues) * 2):
+        for i in range(len(self.kbClues) * 4):
             clue = self.kbClues[i%len(self.kbClues)]    # Full clue from the knowledge base
             prop = list(clue.keys())[0]     # Proposition that binds the clue
             stmnts = list(clue.values())[0] # List of statements in the clue
@@ -297,14 +297,17 @@ class logicPuzzleSolver:
                                     self.kbSolution[keyS2][valueS2].remove(valueS1)
                         
             if self.updateAfterClue():
-                #print(i)
+                print("Number of clues read in: ", len(self.kbClues))
+                print("Number of clues to solve: ",i)
+                print("Number of iterations through clues: ", i/len(self.kbClues))
                 #print(clue)
-                #self.printKbSolution()
-                #print("\n")
+                
+                print("")
 
+                print("Solution:")
                 self.printSolutionWithNames()
                 break
             # DataGroupS2 and Expression
-            print(clue)
-            self.printKbSolution()
-            print("\n") 
+            #print(clue)
+            #self.printKbSolution()
+            #print("\n") 
