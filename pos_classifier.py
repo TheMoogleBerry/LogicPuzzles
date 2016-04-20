@@ -6,8 +6,9 @@ The tags being used are currently those in use for the brown corpus
 """
 from __future__ import print_function
 import sqlite3
-import pandas
+from pandas import DataFrame
 import os
+import re
 
 WEIGHT_FILE = 'data/viterbi.sqlite3'
 DEFAULT_TRAINING_PATH = 'data/brown'
@@ -30,6 +31,48 @@ def array_column(matrix, index):
     for row in matrix:
         column.append(row[index])
     return column
+
+def array_column_filter(matrix, index, value):
+    rows = []
+    for row in matrix:
+        if row[index] == value:
+            rows.append(row)
+
+    return rows
+
+def array_max(matrix, index):
+    """
+    Returns a specific columns max from an array base on some index
+    """
+    max = None
+    for row in matrix:
+        if max == None or row[index] > max:
+            max = row[index]
+    return max
+
+def get_max_word(word_rows):
+    optimal_tag = 'NN'
+    max = 0
+    for row in word_rows:
+        if max < row['Occurrences']:
+            max = row['Occurrences']
+            optimal_tag = row['Tag']
+    return optimal_tag
+
+
+def get_tags_by_word(word_emissions, word):
+    word_options = []
+    for row in word_emissions:
+        if row['Word'] == word:
+            word_options.append(row)
+    return word_options
+
+def get_tags_by_tag(tag_transitions, origin_tag):
+    tag_options = []
+    for row in tag_transitions:
+        if row['OriginTag'] == origin_tag:
+            tag_options.append(row)
+    return tag_options
 
 class POSClassifier(object):
     """
@@ -93,8 +136,8 @@ class POSClassifier(object):
                         vocabulary.add(word)
 
         # Prepare necessary data structures
-        emission = pandas.DataFrame(index=vocabulary, columns=tags)
-        transition = pandas.DataFrame(index=tags, columns=tags)
+        emission = DataFrame(index=vocabulary, columns=tags)
+        transition = DataFrame(index=tags, columns=tags)
         emission.fillna(0, inplace=True)
         transition.fillna(0, inplace=True)
         last_class = None
@@ -129,7 +172,6 @@ class POSClassifier(object):
                     last_class = context_tags
 
         # Pull info from the database that needs to be updated & merge arrays
-        # TODO: Need to optimize
         cursor = self.connection.cursor()
         word_totals = {}
         tag_totals = {}
@@ -226,7 +268,81 @@ class POSClassifier(object):
         Returns:
             str[]: The classifcation of each word in the body of text
         """
-        pass
+        cursor = self.connection.cursor()
 
-test = POSClassifier()
-test.mass_train()
+        # Pad the sentence itself & Parse into our vocabulary
+        vocabulary = re.sub('([.,!?()])', r' \1 ', text)
+        vocabulary = re.sub('\s{2,}', ' ', vocabulary).strip().split(' ')
+        parsed_sentence = vocabulary
+        vocabulary = [x.lower() for x in vocabulary]
+
+        # Format the vocabulary appropriately
+        words = ''
+        if len(vocabulary) > 0:
+            words = "'" + "', '".join(vocabulary) + "'"
+        words = '(' + words + ')'
+
+        # Grab Word Totals
+        cursor.execute('SELECT * FROM Words WHERE Word IN '+ words)
+        word_totals = cursor.fetchall()
+
+        # Grab Word Emissions
+        cursor.execute('SELECT * FROM Emissions WHERE Occurrences > 0 AND Word IN ' + words)
+        word_emissions = cursor.fetchall()
+
+        # Retrieve tags into a consolidated
+        tag_set = array_column(word_emissions, 'Tag')
+        tags = ''
+        if len(tag_set) > 0:
+            tags = "'" + "', '".join(tag_set) + "'"
+        tags = '(' + tags + ')'
+
+        # Grab Tag totals
+        cursor.execute('SELECT * FROM Tags WHERE Tag IN ' + tags)
+        tag_totals = cursor.fetchall()
+
+        # Grab Tag Transitions
+        cursor.execute('SELECT * FROM Transitions WHERE Occurrences > 0 AND OriginTag IN ' + tags + ' AND DestTag IN ' + tags)
+        tag_transitions = cursor.fetchall()
+
+        # Start searching for the best path
+        last_tag = None
+        optimal_tags = []
+        for word in vocabulary:
+            # Pull the important nodes
+            word_tags = get_tags_by_word(word_emissions, word)
+            tag_tags = []
+            optimal_tag = ''
+
+            # Either pick the best combo or max word
+            if last_tag != None:
+                tag_tags = get_tags_by_tag(tag_transitions, last_tag)
+                optimal_combo_value = 0
+                optimal_combo_tag = ''
+                transition_seen = False
+                for transition_row in word_tags:
+                    tag_tests = array_column_filter(tag_tags, 'DestTag', transition_row['Tag'])
+                    for emission_row in tag_tests:
+                        transition_seen = True
+                        combo_value = emission_row['Occurrences'] * transition_row['Occurrences']
+                        if combo_value > optimal_combo_value:
+                            optimal_combo_tag = transition_row['Tag']
+                            optimal_combo_value = combo_value
+                if not transition_seen:
+                    optimal_tag = get_max_word(word_tags)
+                else:
+                    optimal_tag = optimal_combo_tag
+            else:
+                optimal_tag = get_max_word(word_tags)
+
+            # Add to list
+            last_tag = optimal_tag
+            optimal_tags.append(optimal_tag)
+
+        # Format the sentence
+        tagged_corpus = []
+        for index in range(len(parsed_sentence)):
+            tagged_corpus.append(parsed_sentence[index] + '/' + optimal_tags[index].lower())
+        tagged_sentence = " ".join(tagged_corpus)
+
+        return tagged_sentence

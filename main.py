@@ -1,6 +1,8 @@
 from logicPuzzleSolver import logicPuzzleSolver
+import sys
+import pos_classifier as pos
 
-def main():
+def main(corpus):
     """kbClues = [
         {
             "AND" : [
@@ -24,11 +26,11 @@ def main():
         {
             "AND" : [
                 { "Days" : 1 },
-                { "XOR" : [  
+                { "XOR" : [
                     { "Departures" : 1 },
                     { "Names" : 0 }
                     ]
-                } 
+                }
             ]
         },
         {
@@ -62,7 +64,7 @@ def main():
         "Departures" : [ "Buttonwillow", "Coulterville", "Farley", "Leland" ],
         "Names" : [ "Allen", "Chris", "Julio", "Luke" ]
     }
-    
+
     kbClues = [
         {
             "AND" : [
@@ -151,17 +153,20 @@ def main():
                 { "Islands" : 3 }
             ]
         },
-	    
+
     ]
 
     datagroup = {
         "Prices" : [ "$175", "$195", "$215", "$235" ],
         "Resorts" : [ "Azure Hills", "El Pacifico", "Emerald View", "Silver Harbor" ],
         "Islands" : [ "Anguilla", "Barbados", "St. Martin", "St. Barts" ]
-    }	
-    
-    
+    }
+    classifier = pos.POSClassifier()
+    taggest_body = classifier.classify(corpus)
+    print(taggest_body)
+
     lps = logicPuzzleSolver(kbClues, datagroup)
     lps.solvePuzzle()
-				
-main()
+
+logic_corpus = input("Enter the Puzzle's body of text :")
+main(logic_corpus)
