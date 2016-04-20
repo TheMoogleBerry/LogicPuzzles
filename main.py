@@ -2,7 +2,16 @@ from logicPuzzleSolver import logicPuzzleSolver
 import sys
 import pos_classifier as pos
 
-def main(corpus):
+def request_clues():
+    clues = []
+    another = True
+    while another:
+        clue = input("Enter a clue: ")
+        clues.append(clue)
+        another = input("Would you like to enter another clue(Y/N)? ") == 'Y'
+    return(clues)
+
+def main(clues):
     """kbClues = [
         {
             "AND" : [
@@ -161,12 +170,15 @@ def main(corpus):
         "Resorts" : [ "Azure Hills", "El Pacifico", "Emerald View", "Silver Harbor" ],
         "Islands" : [ "Anguilla", "Barbados", "St. Martin", "St. Barts" ]
     }
-    classifier = pos.POSClassifier()
-    taggest_body = classifier.classify(corpus)
-    print(taggest_body)
+    tagged_clues = []
+    for clue in clues:
+        classifier = pos.POSClassifier()
+        tagged_clue = classifier.classify(clue)
+        print(tagged_clue)
+        tagged_clues.append(tagged_clue)
 
     lps = logicPuzzleSolver(kbClues, datagroup)
     lps.solvePuzzle()
 
-logic_corpus = input("Enter the Puzzle's body of text :")
-main(logic_corpus)
+user_clues = request_clues()
+main(user_clues)
