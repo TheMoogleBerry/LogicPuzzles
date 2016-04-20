@@ -72,13 +72,17 @@ class Puzzle(object):
                 }
             ]
         },
+
+
 		'''
 
 		brown_stop_words = ['in', 'bez']
+		xor_words = {'or', 'either'}
 		expr_words = {'after': 'PLUS', 'before': 'SUBTRACT', 'less': 'SUBTRACT', 'more': 'PLUS'}
 		data_group_words = ['day', 'days']
 
 		has_expression = False
+		has_xor = False
 
 		# remove punctuation
 		exclude = set('.')
@@ -94,6 +98,13 @@ class Puzzle(object):
 		for index, expr_word in enumerate(expr_words.keys()):
 			if expr_word in hint_map:
 				has_expression = True
+
+
+		for xor_word in xor_words:
+			if xor_word in hint_map.keys():
+				has_xor = True
+		
+
 		#print(self.hint_map)
 		# Remove stop words from POS classifier
 		hint_map_new = { k:v for k,v in hint_map.items() if v not in brown_stop_words}
@@ -105,87 +116,103 @@ class Puzzle(object):
 		first_np = ''
 		second_np = ''
 		third_np = ''
-		for word in new_hint_text:
-			if (hint_map[word] == 'np' or  hint_map[word] == 'cd') and first_np == '': # and word in data_group
-				first_np = word
-			elif (hint_map[word] == 'np' or  hint_map[word] == 'cd') and second_np == '':
-				second_np = word
-			elif (hint_map[word] == 'np' or  hint_map[word] == 'cd') and third_np == '':
-				third_np = word
 
-		#print("first_np:", first_np)
-		#print("second_np:", second_np)
-		#print("third_np:", third_np)
+		# Process XORs
+		if has_xor:
+			
+			for word in new_hint_text:
+				if (hint_map[word] == 'np' or  hint_map[word] == 'cd') and first_np == '': # and word in data_group
+					first_np = word
+				elif (hint_map[word] == 'np' or  hint_map[word] == 'cd') and second_np == '':
+					second_np = word
+				elif (hint_map[word] == 'np' or  hint_map[word] == 'cd') and third_np == '':
+					third_np = word
+			xor_map = self._get_item_map(first_np)
+			xor_map["XOR"] = [self._get_item_map(second_np), self._get_item_map(third_np)]
 
 
+			self.kb_rule_list.append({"AND": xor_map})
 
 		# Process ORs and append ORs
 		# Hint contains OR when there are multiple (> 3) datagroup items mentioned in a hint. All of these
 		# items must not be matched together
 
-		# determine which datagroup entries are in the clue
-		if third_np != '':
-			or_map_list = list() # list of dicts for OR section of hint
-
-			or_map_list.append(self._get_item_map(first_np))
-
-			# relativly hard coded
-			data_index_1 = self._get_item_index(third_np)
-			data_group_1 = self._get_item_data_group(third_np)
-			index_list_1 = [0,1,2,3]
-			index_list_1.remove(data_index_1)
-			or_map_list.append({"OR":  {data_group_1: index_list_1}})
-			
-			index_list_2 = [0,1,2,3]
-			data_group_2 = self._get_item_data_group(second_np)
-			for i in range(0, int(second_np)):
-				#print(i)
-				index_list_2.remove(i)
-
-			
-			or_map_list.append({"OR": {"Days": index_list_2}})
-
-
-
-			# append OR clue to self.kb_rule_list
-			self.kb_rule_list.append({"AND": or_map_list})
-
-		# print(or_map_list)
-
-		if has_expression:
-			# Add first np to the 'AND' operation, second 'np' to the 'EXP'
-			
-			expr_map = dict()
-			expr_map = self._get_item_map(third_np)
-			#print(expr_map)
-			num = [el for el, val in hint_map_new.items() if val == 'cd'][0]
-
-			expr_map["NUM"] = num
-
-			dg = [el for el, val in hint_map_new.items() if el in data_group_words][0]
-			expr_map["DATAGROUP"] = dg
-
-			op = [expr_words[el] for el, val in hint_map_new.items() if el in list(expr_words.keys())][0]
-			expr_map["OP"] = op
-
-			kb_return_list.append(self._get_item_map(first_np))
-			kb_return_list.append({"EXPR" : expr_map})#self._process_expr(new_hint_text)})
-
-			self.kb_rule_list.append({"AND": kb_return_list})
-
-
-		# No EXPR in current hint
+		# No XOR, process ORs, ANDs, and EXPR
 		else:
-			for (k,v) in self.data_group.items():
-				for word in hint_map_new:
-					if word in v:
-						d = dict()
-						kb_return_list.append({k: v.index(word)})
-			return_map.append({"AND": kb_return_list})
+			# determine which datagroup entries are in the clue
+			for word in new_hint_text:
+			# if (hint_map[word] == 'np' or  hint_map[word] == 'cd') and first_np == '': # and word in data_group
+			# 	first_np = word
+			# elif (hint_map[word] == 'np' or  hint_map[word] == 'cd') and second_np == '':
+			# 	second_np = word
+			# elif (hint_map[word] == 'np' or  hint_map[word] == 'cd') and third_np == '':
+			# 	third_np = word
+				if (hint_map[word] == 'np') and first_np == '': # and word in data_group
+					first_np = word
+				elif (hint_map[word] == 'np') and second_np == '':
+					second_np = word
+				elif (hint_map[word] == 'np') and third_np == '':
+					third_np = word
 
-		# return appropriate KB map result
-		
-		
+			# if third_np != '':
+			# 	or_map_list = list() # list of dicts for OR section of hint
+
+			# 	or_map_list.append(self._get_item_map(first_np))
+
+			# 	# relativly hard coded
+			# 	data_index_1 = self._get_item_index(third_np)
+			# 	data_group_1 = self._get_item_data_group(third_np)
+			# 	index_list_1 = [0,1,2,3]
+			# 	index_list_1.remove(data_index_1)
+			# 	or_map_list.append({"OR":  {data_group_1: index_list_1}})
+				
+			# 	index_list_2 = [0,1,2,3]
+			# 	data_group_2 = self._get_item_data_group(second_np)
+			# 	for i in range(0, int(second_np)):
+			# 		#print(i)
+			# 		index_list_2.remove(i)
+
+				
+			# 	or_map_list.append({"OR":{"Days":index_list_2}})
+
+			# 	# append OR clue to self.kb_rule_list
+			# 	self.kb_rule_list.append({"AND":or_map_list})
+
+			# # print(or_map_list)
+
+			if has_expression:
+				# Add first np to the 'AND' operation, second 'np' to the 'EXP'
+				expr_map = dict()
+				expr_map = self._get_item_map(second_np)
+				num = [el for el, val in hint_map_new.items() if val == 'cd'][0]
+
+				expr_map["NUM"] = num
+
+				dg = [el for el, val in hint_map_new.items() if el in data_group_words][0]
+				expr_map["DATAGROUP"] = dg
+
+				op = [expr_words[el] for el, val in hint_map_new.items() if el in list(expr_words.keys())][0]
+				expr_map["OP"] = op
+
+				kb_return_list.append(self._get_item_map(first_np))
+				kb_return_list.append({"EXPR":expr_map})#self._process_expr(new_hint_text)})
+
+				self.kb_rule_list.append({"AND":kb_return_list})
+
+
+			# No EXPR in current hint
+			else:
+				for (k,v) in self.data_group.items():
+					for word in hint_map_new:
+						if word in v:
+							d = dict()
+							kb_return_list.append({k: v.index(word)})
+
+				self.kb_rule_list.append({"AND":kb_return_list})
+
+			# return appropriate KB map result
+			
+			
 		return return_map
 
 	def _get_item_map(self, item):
