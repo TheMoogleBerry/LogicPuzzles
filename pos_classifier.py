@@ -51,7 +51,7 @@ def array_max(matrix, index):
     return max
 
 def get_max_word(word_rows):
-    optimal_tag = 'NN'
+    optimal_tag = 'NP'
     max = 0
     for row in word_rows:
         if max < row['Occurrences']:
