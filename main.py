@@ -1,6 +1,7 @@
 from logicPuzzleSolver import logicPuzzleSolver
 import sys
 import pos_classifier as pos
+import puzzle
 
 def request_clues():
     clues = []
@@ -12,14 +13,7 @@ def request_clues():
     return(clues)
 
 def main(clues):
-    """kbClues = [
-        {
-            "AND" : [
-                { "Departures" : 0 },
-                { "OR" : { "Days" : [2,3] } },
-                { "OR" : { "Names" : [0,1,3] } }
-            ]
-        },
+    kbClues = [
         {
             "AND" : [
                 { "Departures" : 0 },
@@ -45,13 +39,6 @@ def main(clues):
         {
             "AND" : [
                 { "Departures" : 3 },
-                { "OR" : { "Days" : [1,2,3] } },
-                { "OR" : { "Names" : [0,2,3] } }
-            ]
-        },
-        {
-            "AND" : [
-                { "Departures" : 3 },
                 { "EXPR" : {
                     "Names" : 1,
                     "DataGroup" : "Days",
@@ -68,114 +55,21 @@ def main(clues):
             ]
         }
     ]
+
     datagroup = {
         "Days" : [ "June 10", "June 11", "June 12", "June 13" ],
         "Departures" : [ "Buttonwillow", "Coulterville", "Farley", "Leland" ],
         "Names" : [ "Allen", "Chris", "Julio", "Luke" ]
     }
-
-    kbClues = [
-        {
-            "AND" : [
-                { "Winners" : 2 },
-                { "Winnings" : 1 }
-            ]
-        },
-        {
-            "AND" : [
-                { "Winners" : 0 },
-                { "EXPR" : {
-                    "States" : 1,
-                    "DataGroup" : "Winnings",
-                    "OP" : "PLUS",
-                    "NUM" : 1
-                    }
-                }
-            ]
-        },
-        {
-            "AND" : [
-                { "Winnings" : 1 },
-                { "States" : 3 }
-            ]
-        },
-        {
-            "XOR" : [
-                { "States" : 1 },
-                { "Winners" : 2 },
-                { "Winners" : 1 }
-            ]
-        },
-        {
-            "AND" : [
-                { "States" : 1 },
-                { "EXPR" : {
-                    "States" : 0,
-                    "DataGroup" : "Winnings",
-                    "OP" : "PLUS",
-                    "NUM" : 2
-                    }
-                }
-            ]
-        }
-    ]
-    datagroup = {
-        "Winnings" : [ "$5 million", "$10 million", "$15 million", "$20 million" ],
-        "Winners" : [ "Cal Chandler", "Dharma Day", "Ed Elliot", "Ferris Fry" ],
-        "States" : [ "Georgia", "Pennsylvania", "Vermont", "Washington" ]
-    }
-    """
-    kbClues = [
-		{
-            "AND" : [
-                { "Islands" : 0 },
-                { "EXPR" : {
-                    "Resorts" : 3,
-                    "DataGroup" : "Prices",
-                    "OP" : "PLUS",
-                    "NUM" : 1
-                    }
-                }
-            ]
-        },
-        {
-            "AND" : [
-                { "Resorts" : 1 },
-                { "Islands" : 2 }
-            ]
-        },
-		{
-            "AND" : [
-                { "Resorts" : 1 },
-                { "EXPR" : {
-                    "Islands" : 0,
-                    "DataGroup" : "Prices",
-                    "OP" : "PLUS",
-                    "NUM" : 2
-                    }
-                }
-            ]
-        },
-        {
-            "AND" : [
-                { "Resorts" : 2 },
-                { "Islands" : 3 }
-            ]
-        },
-
-    ]
-
-    datagroup = {
-        "Prices" : [ "$175", "$195", "$215", "$235" ],
-        "Resorts" : [ "Azure Hills", "El Pacifico", "Emerald View", "Silver Harbor" ],
-        "Islands" : [ "Anguilla", "Barbados", "St. Martin", "St. Barts" ]
-    }
-    tagged_clues = []
+    kbData = []
+    mapper = puzzle.Puzzle(datagroup)
     for clue in clues:
         classifier = pos.POSClassifier()
         tagged_clue = classifier.classify(clue)
         print(tagged_clue)
-        tagged_clues.append(tagged_clue)
+        mapped_hint = mapper.process_hint(tagged_clue)
+        print(mapped_hint)
+        kbData.append(tagged_clue)
 
     lps = logicPuzzleSolver(kbClues, datagroup)
     lps.solvePuzzle()
